@@ -11,8 +11,7 @@ void main() {
       ),
       body: const Center(
         child: Image(
-          image: NetworkImage(
-              "https://assets.skyfilabs.com/images/blog/best-online-courses-to-learn-flutter-for-beginners.webp"),
+          image: AssetImage("assets/test.jpg"),
         ),
       ),
     ),
