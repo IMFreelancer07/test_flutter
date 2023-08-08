@@ -15,12 +15,26 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.green.shade600,
           centerTitle: true,
-          title: const Text("Learn Flutter"),
+          title: const Text(
+            "Learn Flutter",
+            style: TextStyle(fontSize: 30, fontFamily: 'Borel', fontWeight: FontWeight.w500),
+          ),
         ),
         body: SafeArea(
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("I am Row"),
+                  Icon(Icons.access_alarm),
+                  Icon(Icons.add_circle),
+                ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
               Container(
                 height: 100,
                 width: 100,
@@ -30,7 +44,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 10,
+                height: 10,
               ),
               Container(
                 height: 100,
