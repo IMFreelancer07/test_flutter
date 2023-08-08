@@ -18,31 +18,29 @@ class MyApp extends StatelessWidget {
           title: const Text("Learn Flutter"),
         ),
         body: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 300,
-                  width: 300,
-                  color: Colors.blueGrey,
-                  child: const Center(
-                    child: Text("Container's Text"),
-                  ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.blueGrey,
+                child: const Center(
+                  child: Text("Container 1"),
                 ),
-                const SizedBox(
-                  height: 10,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.indigo,
+                child: const Center(
+                  child: Text("Container 2"),
                 ),
-                Container(
-                  height: 300,
-                  width: 300,
-                  color: Colors.indigo,
-                  child: const Center(
-                    child: Text("Container's Text"),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
