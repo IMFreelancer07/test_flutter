@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           title: const Text(
             "Learn Flutter",
-            style: TextStyle(fontSize: 30, fontFamily: 'Borel', fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontSize: 30, fontFamily: 'Borel', fontWeight: FontWeight.w500),
           ),
         ),
         body: SafeArea(
