@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
             Container(
               height: 250,
               decoration: BoxDecoration(
-                color: Colors.blueGrey.withOpacity(.3),
+                color: x==y ? Colors.teal : Colors.blueGrey.withOpacity(.3),
                 borderRadius: BorderRadius.circular(15)
               ),
               child: Padding(
