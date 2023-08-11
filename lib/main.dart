@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
             SizedBox(height: 20,),
             Container(
               height: 250,
+              width: 300,
               decoration: BoxDecoration(
                 color: x==y ? Colors.teal : Colors.blueGrey.withOpacity(.3),
                 borderRadius: BorderRadius.circular(15)
