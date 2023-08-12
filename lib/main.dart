@@ -15,8 +15,37 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Center(child: Text("Learning Widgets")),
         ),
-        body: Center(child: Text("Work in progress...!")),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.white,
+                    height: 250,
+                    child: Center(
+                      child: Text("Jeeay"),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    color: Colors.green,
+                    height: 250,
+                    child: Center(
+                      child: Text("Pakistan"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+// Center(child: Text("Work in progress...!"))
