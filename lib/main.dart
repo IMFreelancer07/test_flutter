@@ -6,7 +6,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  var x = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -19,46 +21,19 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                style: TextStyle(fontSize: 15),
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.withOpacity(.3),
-                    filled: true,
-                    prefixIcon: Icon(Icons.alternate_email),
-                    hintText: "Email",
-                  labelText: "Email Field",
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color : Colors.grey, width: 2)
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color : Colors.blueGrey, width: 2),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TextFormField(
-                keyboardType: TextInputType.phone,
-                style: TextStyle(fontSize: 15),
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.withOpacity(.3),
-                    filled: true,
-                    prefixIcon: Icon(Icons.plus_one_sharp),
-                    hintText: "Phone",
-                    labelText: "Phone Number",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color : Colors.grey, width: 2)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color : Colors.blueGrey, width: 2),
-                      borderRadius: BorderRadius.circular(10)
-                  )
-                ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 50,
+                  itemBuilder: (context, index){
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage("https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png"),
+                      ),
+                      title: Text("Syed"),
+                      subtitle: Text("Computer Scientist..."),
+                      trailing: Text("$x"),
+                    );
+                  }
               ),
             ),
           ],
