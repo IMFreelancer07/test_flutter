@@ -19,11 +19,46 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(
-              child: CircleAvatar(
-                radius: 100,
-                backgroundColor: Colors.blueGrey,
-                backgroundImage: NetworkImage("https://www.iconarchive.com/download/i145613/aniket-suvarna/box-logo/bxl-flutter.1024.png"),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                style: TextStyle(fontSize: 15),
+                decoration: InputDecoration(
+                    fillColor: Colors.grey.withOpacity(.3),
+                    filled: true,
+                    prefixIcon: Icon(Icons.alternate_email),
+                    hintText: "Email",
+                  labelText: "Email Field",
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color : Colors.grey, width: 2)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color : Colors.blueGrey, width: 2),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextFormField(
+                keyboardType: TextInputType.phone,
+                style: TextStyle(fontSize: 15),
+                decoration: InputDecoration(
+                    fillColor: Colors.grey.withOpacity(.3),
+                    filled: true,
+                    prefixIcon: Icon(Icons.plus_one_sharp),
+                    hintText: "Phone",
+                    labelText: "Phone Number",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color : Colors.grey, width: 2)
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color : Colors.blueGrey, width: 2),
+                      borderRadius: BorderRadius.circular(10)
+                  )
+                ),
               ),
             ),
           ],
