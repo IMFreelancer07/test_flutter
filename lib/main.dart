@@ -19,15 +19,12 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blueGrey,
-                ),
-                Text("I am in stack!")
-              ],
+            Center(
+              child: CircleAvatar(
+                radius: 100,
+                backgroundColor: Colors.blueGrey,
+                backgroundImage: NetworkImage("https://www.iconarchive.com/download/i145613/aniket-suvarna/box-logo/bxl-flutter.1024.png"),
+              ),
             ),
           ],
         ),
