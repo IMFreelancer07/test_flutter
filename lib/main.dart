@@ -15,7 +15,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Center(child: Text("Learning Widgets")),
         ),
-        body: Center(child: Text("Work in progress...!")),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.blueGrey,
+                ),
+                Text("I am in stack!")
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
