@@ -8,8 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  var x = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
