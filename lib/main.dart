@@ -15,14 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "test_flutter",
-      initialRoute: HomeScreen.id,
-      routes: {
-        HomeScreen.id : (context) => HomeScreen(),
-        SecondScreen.id : (context) => SecondScreen(),
-        MyApp.id : (context) => MyApp()
-      },
-      // home: HomeScreen(),
+      home: Center(child: Text("Work in progress...!")),
     );
   }
 }
