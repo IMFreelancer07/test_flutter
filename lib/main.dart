@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-
-import 'package:test_flutter/home_screen.dart';
-import 'package:test_flutter/second_screen.dart';
+import 'package:test_flutter/whatsapp_home.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Center(child: Text("Work in progress...!")),
+      title: "learn_flutter",
+      theme: ThemeData(
+        primarySwatch: Colors.teal
+      ),
+      home: WhatsAppHome(),
     );
   }
 }
