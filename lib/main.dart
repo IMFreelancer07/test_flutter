@@ -12,11 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "learn_flutter",
-      theme: ThemeData(
-        primarySwatch: Colors.teal
-      ),
-      home: WhatsAppHome(),
+      home: Center(child: Text("Work in progress...!")),
     );
   }
 }
