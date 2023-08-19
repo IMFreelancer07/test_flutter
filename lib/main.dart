@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 40.0,
                   fontFamily: 'Horizon',
-                  color: Colors.red
+                  color: Colors.red,
+                  backgroundColor: Colors.blueGrey
                 ),
                 child: AnimatedTextKit(
                   animatedTexts: [
