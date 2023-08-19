@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:readmore/readmore.dart';
-import 'package:test_flutter/whatsapp_home.dart';
+import 'package:badges/badges.dart' as badges;
 
 void main() {
   runApp(MyApp());
@@ -19,8 +18,29 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Readmoretxt"),
             backgroundColor: Colors.blueGrey,
+            actions: [
+              Center(
+                  child: badges.Badge(
+                    badgeContent: Text("5"),
+                    child: Icon(Icons.shopping_cart),
+                  )
+              ),
+              SizedBox(width: 15,),
+            ],
           ),
-          body: Center(child: Text("Work in progress...!"))
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: badges.Badge(
+                  badgeContent: Text("1"),
+                  child: Icon(Icons.settings),
+                  badgeStyle: badges.BadgeStyle(badgeColor: Colors.black26),
+                )
+              ),
+            ],
+          )
         ),
       ),
     );
