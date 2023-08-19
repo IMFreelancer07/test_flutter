@@ -1,6 +1,5 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +19,30 @@ class MyApp extends StatelessWidget {
             title: Text("Readmoretxt"),
             backgroundColor: Colors.blueGrey,
           ),
-          body: Center(child: Text("Work in progress...!")),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                PinCodeTextField(
+                  appContext: context,
+                  length: 5,
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(5),
+                    fieldHeight: 50,
+                    fieldWidth: 40,
+                  ),
+                  onChanged: (value){
+
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
