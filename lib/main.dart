@@ -20,35 +20,7 @@ class MyApp extends StatelessWidget {
             title: Text("Readmoretxt"),
             backgroundColor: Colors.blueGrey,
           ),
-          body: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(width: 20.0, height: 100.0),
-              const Text(
-                'Stay',
-                style: TextStyle(fontSize: 43.0),
-              ),
-              const SizedBox(width: 20.0, height: 100.0),
-              DefaultTextStyle(
-                style: const TextStyle(
-                  fontSize: 40.0,
-                  fontFamily: 'Horizon',
-                  color: Colors.red,
-                  backgroundColor: Colors.blueGrey
-                ),
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    RotateAnimatedText('CONSISTANT'),
-                    RotateAnimatedText('FOCUSSED'),
-                    RotateAnimatedText('COMITTED'),
-                  ],
-                  onTap: () {
-                    print("Tap Event");
-                  },
-                ),
-              ),
-            ],
-          ),
+          body: Center(child: Text("Work in progress...!")),
         ),
       ),
     );
