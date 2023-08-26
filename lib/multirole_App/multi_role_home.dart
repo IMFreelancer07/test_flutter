@@ -23,7 +23,7 @@ class _MR_HomeState extends State<MR_Home> {
   void loadData () async {
     SharedPreferences sprefs = await SharedPreferences.getInstance();
     email = sprefs.getString("username") ?? '';
-    age = sprefs.getInt("age")as String;
+    age = sprefs.getString("age") ?? '';
 
     setState(() {
 

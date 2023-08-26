@@ -58,7 +58,7 @@ class _Login_ScreenState extends State<Login_Screen> {
 
                 sprefs.setString("username", emailController.text.toString());
                 sprefs.setString("password", passwordController.text.toString());
-                sprefs.setInt("age", ageController as int);
+                sprefs.setString("age", ageController.text.toString());
                 sprefs.setBool("isLoggedIn", true);
 
                 Navigator.push(context,
