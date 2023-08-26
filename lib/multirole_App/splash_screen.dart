@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:test_flutter/multirole_App/login_screen.dart';
 import 'package:test_flutter/multirole_App/multi_role_home.dart';
 
  class Splash_Screen extends StatefulWidget {
@@ -12,13 +16,28 @@ import 'package:test_flutter/multirole_App/multi_role_home.dart';
 
    @override
   void initState() {
-
     super.initState();
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context)=> MR_Home()),
-    );
+    isLoggedIn();
+  }
+
+  void isLoggedIn() async {
+     SharedPreferences sprefs = await SharedPreferences.getInstance();
+     bool? is_logged_in = sprefs.getBool("isLoggedIn") ?? false;
+
+     if (is_logged_in){
+       Timer(Duration(seconds: 5), () {
+         Navigator.push(
+             context,
+             MaterialPageRoute(builder: (context) => MR_Home()));
+       });
+     } else {
+       Timer(Duration(seconds: 5), () {
+         Navigator.push(
+             context,
+             MaterialPageRoute(builder: (context) => Login_Screen()));
+       });
+     }
   }
 
    @override
@@ -27,7 +46,7 @@ import 'package:test_flutter/multirole_App/multi_role_home.dart';
        body: Image(
          height: double.infinity,
          fit: BoxFit.fitHeight,
-         image: NetworkImage("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/light-bulb-and-splash-water-setsiri-silapasuwanchai.jpg"),
+         image: NetworkImage("https://static.vecteezy.com/system/resources/previews/024/724/494/original/a-male-lion-is-roaring-isolated-on-a-transparent-background-powerful-strong-lion-roar-generative-ai-png.png"),
        ),
      );
    }
