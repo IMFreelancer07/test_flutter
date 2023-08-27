@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test_flutter/multirole_App/login_screen.dart';
 
-class MR_Home extends StatefulWidget {
-  const MR_Home({super.key});
+class Teacher_Screen extends StatefulWidget {
+  const Teacher_Screen({super.key});
 
   @override
-  State<MR_Home> createState() => _MR_HomeState();
+  State<Teacher_Screen> createState() => _Teacher_ScreenState();
 }
 
-class _MR_HomeState extends State<MR_Home> {
-
-  String email = '', age = '';
+class _Teacher_ScreenState extends State<Teacher_Screen> {
+  String email = '', age = '', role = '';
 
   @override
   void initState() {
@@ -24,6 +23,7 @@ class _MR_HomeState extends State<MR_Home> {
     SharedPreferences sprefs = await SharedPreferences.getInstance();
     email = sprefs.getString("username") ?? '';
     age = sprefs.getString("age") ?? '';
+    role = sprefs.getString("role") ?? '';
 
     setState(() {
 
@@ -34,7 +34,7 @@ class _MR_HomeState extends State<MR_Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Teacher Screen"),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -51,6 +51,7 @@ class _MR_HomeState extends State<MR_Home> {
               children: [
                 Text("Wellcome $email!"),
                 Text("Your age is $age"),
+                Text("Your role is $role"),
               ],
             ),
 
