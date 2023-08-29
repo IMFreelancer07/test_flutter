@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: Text("Multi_Role_App"),
           ),
-          body: Splash_Screen(),
+          body: Center(child: Text("Work in progress...!")),
         ),
       ),
     );
