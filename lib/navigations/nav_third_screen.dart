@@ -12,7 +12,7 @@ class _ScreenThreeNavState extends State<ScreenThreeNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Screen Two Nav"),
+        title: Text("Screen Three Nav"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

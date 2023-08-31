@@ -11,8 +11,7 @@ class NavHomeScreen extends StatefulWidget {
 class _NavHomeScreenState extends State<NavHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -41,7 +40,6 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             ],
           ),
         ),
-      ),
     );
   }
 }
