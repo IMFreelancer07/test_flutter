@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/nav_third_screen.dart';
+import 'package:test_flutter/navigations/nav_third_screen.dart';
 
 class ScreenTwoNav extends StatefulWidget {
   final String name;
@@ -38,7 +38,7 @@ class _ScreenTwoNavState extends State<ScreenTwoNav> {
                     color: Colors.blueGrey
                 ),
                 child: Center(
-                  child: Text("Back to Home"),
+                  child: Text("ScreenThree"),
                 ),
               ),
             )
