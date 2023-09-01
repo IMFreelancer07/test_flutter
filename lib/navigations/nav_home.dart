@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/navigations/nav_screen_two.dart';
 
 class NavHomeScreen extends StatefulWidget {
+  static const String id = "Nav_Home_Screen";
   const NavHomeScreen({super.key});
 
   @override
@@ -20,13 +21,14 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ScreenTwoNav(
-                            name: 'Syed Dev',
-                            number: 07,
-                          )));
+                  Navigator.pushNamed(context, ScreenTwoNav.id, arguments: "NameArgs");
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const ScreenTwoNav(
+                  //           name: 'Syed Dev',
+                  //           number: 07,
+                  //         )));
                 },
                 child: Container(
                   height: 50,

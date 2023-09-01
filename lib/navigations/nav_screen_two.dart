@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/navigations/nav_third_screen.dart';
 
-class ScreenTwoNav extends StatefulWidget {
+class ScreenTwoNav extends StatefulWidget
+{
+  static const String id = "Nav_Second_Screen";
   final String name;
   final int number;
   const ScreenTwoNav({super.key, required this.name, this.number = 6});
@@ -27,9 +29,10 @@ class _ScreenTwoNavState extends State<ScreenTwoNav> {
             SizedBox(height: 50,),
             InkWell(
               onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ScreenThreeNav())
-                );
+                Navigator.pushNamed(context, ScreenThreeNav.id);
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => ScreenThreeNav())
+                // );
               },
               child: Container(
                 height: 50,

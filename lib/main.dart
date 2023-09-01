@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/home_screen.dart';
 import 'package:test_flutter/multirole_App/multi_role_home.dart';
 import 'package:test_flutter/multirole_App/splash_screen.dart';
 import 'package:test_flutter/navigations/nav_screen_two.dart';
+import 'package:test_flutter/navigations/nav_third_screen.dart';
 
 import 'navigations/nav_home.dart';
 
@@ -22,12 +24,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Navigation"),
-        ),
-        body: const NavHomeScreen()
-      ),
+        title: "FlutterNavs",
+      initialRoute: NavHomeScreen.id,
+      routes: {
+          NavHomeScreen.id : (context) => NavHomeScreen(),
+          ScreenTwoNav.id : (context) =>  ScreenTwoNav(name: "ScreenTwoArgs"),
+          ScreenThreeNav.id : (context) => ScreenThreeNav(),
+      },
     );
   }
 }
