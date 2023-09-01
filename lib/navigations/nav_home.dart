@@ -21,7 +21,9 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, ScreenTwoNav.id, arguments: "NameArgs");
+                  Navigator.pushNamed(context, ScreenTwoNav.id, arguments: {
+                    "name":"testArgs"
+                  });
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(

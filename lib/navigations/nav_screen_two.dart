@@ -15,9 +15,10 @@ class ScreenTwoNav extends StatefulWidget
 class _ScreenTwoNavState extends State<ScreenTwoNav> {
   @override
   Widget build(BuildContext context) {
+    final arguments = ModalRoute.of(context)?.settings.arguments as Map;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Screen Two Nav"),
+        title: Text("Arguments passed :"+arguments.toString()),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -25,7 +26,7 @@ class _ScreenTwoNavState extends State<ScreenTwoNav> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Credentials passed : $num"),
+            Text("Credentials passed : "+arguments['name']),
             SizedBox(height: 50,),
             InkWell(
               onTap: (){

@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: NavHomeScreen.id,
       routes: {
           NavHomeScreen.id : (context) => NavHomeScreen(),
-          ScreenTwoNav.id : (context) =>  ScreenTwoNav(name: "ScreenTwoArgs"),
+          ScreenTwoNav.id : (context) =>  ScreenTwoNav(name: ""),
           ScreenThreeNav.id : (context) => ScreenThreeNav(),
       },
     );
