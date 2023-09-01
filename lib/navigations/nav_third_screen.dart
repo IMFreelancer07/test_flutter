@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenThreeNav extends StatefulWidget {
-  static const String id = "Nav_Third_Screen";
+
   const ScreenThreeNav({super.key});
 
   @override

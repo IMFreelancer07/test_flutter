@@ -4,6 +4,8 @@ import 'package:test_flutter/multirole_App/multi_role_home.dart';
 import 'package:test_flutter/multirole_App/splash_screen.dart';
 import 'package:test_flutter/navigations/nav_screen_two.dart';
 import 'package:test_flutter/navigations/nav_third_screen.dart';
+import 'package:test_flutter/utils/routes.dart';
+import 'package:test_flutter/utils/routes_name.dart';
 
 import 'navigations/nav_home.dart';
 
@@ -25,12 +27,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "FlutterNavs",
-      initialRoute: NavHomeScreen.id,
-      routes: {
-          NavHomeScreen.id : (context) => NavHomeScreen(),
-          ScreenTwoNav.id : (context) =>  ScreenTwoNav(name: ""),
-          ScreenThreeNav.id : (context) => ScreenThreeNav(),
-      },
+        initialRoute: RouteName.navHomeScreen,
+        onGenerateRoute: Routes.generateRoute,
     );
   }
 }
