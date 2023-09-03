@@ -25,11 +25,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "FlutterNavs",
-        initialRoute: RouteName.navHomeScreen,
-        onGenerateRoute: Routes.generateRoute,
-    );
+    return Center(child: Text("Work in progress...!"));
   }
 }
 
