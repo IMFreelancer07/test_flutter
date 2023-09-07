@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/apis_tuts/SignUpApituts.dart';
 import 'package:test_flutter/apis_tuts/api_home_screen.dart';
 import 'package:test_flutter/apis_tuts/api_userdata_screen.dart';
 
@@ -20,8 +21,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Center(child: Text("Work in progress...!")),
+    return const MaterialApp(
+      home: SignUp_ApiTuts(),
     );
   }
 }
