@@ -16,6 +16,9 @@ class _SignUp_ApiTutsState extends State<SignUp_ApiTuts> {
   void login(String email, password) async {
     try{
       Response response = await post(
+        /**Uri.parse("https://reqres.in/api/login"),
+        login api
+         **/
         Uri.parse("https://reqres.in/api/register"),
         body: {
           "email" : email,
