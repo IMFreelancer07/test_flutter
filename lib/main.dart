@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/apis_tuts/SignUpApituts.dart';
-import 'package:test_flutter/apis_tuts/api_home_screen.dart';
-import 'package:test_flutter/apis_tuts/api_userdata_screen.dart';
-
-import 'apis_tuts/api_getlast_tut.dart';
+import 'apis_tuts/uploadfile_ApiTuts.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SignUp_ApiTuts(),
+      home: uploadFile_PostApi(),
     );
   }
 }
