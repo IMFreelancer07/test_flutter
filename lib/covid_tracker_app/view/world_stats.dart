@@ -51,7 +51,7 @@ class _WorldStatsCovidState extends State<WorldStatsCovid> with TickerProviderSt
                   return Expanded(
                       flex: 1,
                       child: SpinKitFadingCircle(
-                        color: Colors.white,
+                        color: Colors.blue,
                         size: 50.0,
                         controller: _controller,
                       ));
