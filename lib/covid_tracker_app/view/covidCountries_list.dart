@@ -69,14 +69,14 @@ class _CovidCountriesListState extends State<CovidCountriesList> {
                         return ListView.builder(
                             itemCount: snapshot.data!.length,
                             itemBuilder: (context, index){
-                              String countryName = snapshot.data![index]['country'];
+                              String countryName = snapshot.data![index]['country'].toString();
 
                               if(searchController.text.isEmpty){
                                 return Column(
                                   children: [
                                     ListTile(
-                                      title: snapshot.data![index]['country'],
-                                      subtitle: snapshot.data![index]['cases'],
+                                      title:  Text(snapshot.data![index]['country']),
+                                      subtitle: Text(snapshot.data![index]['cases'].toString()),
                                       leading: Image(
                                         height: 50,
                                         width: 50,
@@ -91,8 +91,8 @@ class _CovidCountriesListState extends State<CovidCountriesList> {
                                 return Column(
                                   children: [
                                     ListTile(
-                                      title: snapshot.data![index]['country'],
-                                      subtitle: snapshot.data![index]['cases'],
+                                      title:  Text(snapshot.data![index]['country']),
+                                      subtitle: Text(snapshot.data![index]['cases'].toString()),
                                       leading: Image(
                                         height: 50,
                                         width: 50,
