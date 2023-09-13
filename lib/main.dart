@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreenCovidApp(),
+      home: Center(child: Text("Work in progress...!")),
     );
   }
 }
