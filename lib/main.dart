@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/apis_tuts/DropDownListApi.dart';
 import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Center(child: Text("Work in progress...!")),
+      home: DropDownApiScreen(),
     );
   }
 }
