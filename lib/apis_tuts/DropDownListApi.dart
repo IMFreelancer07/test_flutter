@@ -20,7 +20,7 @@ class _DropDownApiScreenState extends State<DropDownApiScreen> {
     try {
 
       final response = await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
-      final body = jsonDecode(response.body.toString()) as List;
+      final body = jsonDecode(response.body) as List;
 
       if(response.statusCode == 200) {
         return body.map((e) {
@@ -32,7 +32,7 @@ class _DropDownApiScreenState extends State<DropDownApiScreen> {
             body: map['body']
           );
         }).toList();
-      } else {}
+      }
 
     } on SocketException{
       throw Exception("No Internet, please check!");
@@ -59,19 +59,21 @@ class _DropDownApiScreenState extends State<DropDownApiScreen> {
           children: [
             FutureBuilder<List<DropDownModal>>(
                 future: getPost(),
-                builder: (context, AsyncSnapshot snapshot){
+                builder: (context, snapshot){
 
                   if(!snapshot.hasData) {
                     return CircularProgressIndicator();
                   } else {
                    return DropdownButton(
                        hint: Text("Select value"),
-                       items: snapshot.data!.map((e){
+                       isExpanded: true,
+                       value: selectedValue,
+                       items: snapshot.data!.map((e) {
                          return DropdownMenuItem(
-                             value: e.id.toString(),
-                             child: Text(e.id.toString()),
+                             value: e.title.toString(),
+                             child: Text(e.title.toString()),
                          );
-                       }),
+                       }).toList(),
                        onChanged: (value) {
                          selectedValue = value;
                          setState(() {
