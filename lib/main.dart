@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/apis_tuts/DropDownListApi.dart';
-import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/providerStateMngmnt/providerScreens/count_example.dart';
+
+import 'providerStateMngmnt/Provider/count_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +20,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Center(child: Text("Work in progress...!")),
+
+    return ChangeNotifierProvider(
+        create: (_) => CountProvider(),
+      child: const MaterialApp(
+        home: CountExample(),
+      ),
     );
   }
 }
