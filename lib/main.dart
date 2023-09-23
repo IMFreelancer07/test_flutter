@@ -4,6 +4,7 @@ import 'package:test_flutter/providerStateMngmnt/Provider/ThemeChangeProvider.da
 import 'package:test_flutter/providerStateMngmnt/Provider/favourite_Provider.dart';
 import 'package:test_flutter/providerStateMngmnt/Provider/multiP_provider.dart';
 import 'package:test_flutter/providerStateMngmnt/providerScreens/Dark_Screen.dart';
+import 'package:test_flutter/providerStateMngmnt/providerScreens/NotifyListenerScreen.dart';
 import 'providerStateMngmnt/Provider/count_provider.dart';
 
 void main() {
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
               backgroundColor: Colors.blueGrey,
             )
           ),
-          home: DarkThemeScreen(),
+          home: NotifyListenerScreen(),
         );
       },)
     );
