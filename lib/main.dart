@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_flutter/providerStateMngmnt/Provider/ThemeChangeProvider.dart';
+import 'package:test_flutter/providerStateMngmnt/Provider/auth_provider.dart';
 import 'package:test_flutter/providerStateMngmnt/Provider/favourite_Provider.dart';
 import 'package:test_flutter/providerStateMngmnt/Provider/multiP_provider.dart';
-import 'package:test_flutter/providerStateMngmnt/providerScreens/Dark_Screen.dart';
-import 'package:test_flutter/providerStateMngmnt/providerScreens/NotifyListenerScreen.dart';
+import 'package:test_flutter/providerStateMngmnt/providerScreens/LoginScreen.dart';
 import 'providerStateMngmnt/Provider/count_provider.dart';
 
 void main() {
@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => multiP_Provider(),),
         ChangeNotifierProvider(create: (_) => Favourite_Provider(),),
         ChangeNotifierProvider(create: (_) => ThemeChangeProvider(),),
+        ChangeNotifierProvider(create: (_) => AuthProvider(),),
       ],
       child: Builder(
         builder: (BuildContext context){
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
               backgroundColor: Colors.blueGrey,
             )
           ),
-          home: NotifyListenerScreen(),
+          home: LoginScreen(),
         );
       },)
     );
