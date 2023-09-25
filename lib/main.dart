@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:test_flutter/providerStateMngmnt/Provider/ThemeChangeProvider.dart';
-import 'package:test_flutter/providerStateMngmnt/Provider/auth_provider.dart';
-import 'package:test_flutter/providerStateMngmnt/Provider/favourite_Provider.dart';
-import 'package:test_flutter/providerStateMngmnt/Provider/multiP_provider.dart';
-import 'package:test_flutter/providerStateMngmnt/providerScreens/LoginScreen.dart';
-import 'providerStateMngmnt/Provider/count_provider.dart';
+
+import 'mvvm/utils/routes/routes.dart';
+import 'mvvm/utils/routes/routes_name.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -24,33 +20,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CountProvider(),),
-        ChangeNotifierProvider(create: (_) => multiP_Provider(),),
-        ChangeNotifierProvider(create: (_) => Favourite_Provider(),),
-        ChangeNotifierProvider(create: (_) => ThemeChangeProvider(),),
-        ChangeNotifierProvider(create: (_) => AuthProvider(),),
-      ],
-      child: Builder(
-        builder: (BuildContext context){
-          final themeChange = Provider.of<ThemeChangeProvider>(context);
-        return MaterialApp(
-          themeMode: themeChange.themeMode,
-          theme: ThemeData(
-            brightness: Brightness.light,
-            primarySwatch: Colors.red,
-          ),
-          darkTheme: ThemeData(
-            brightness: Brightness.dark,
-            primarySwatch: Colors.blueGrey,
-            appBarTheme: AppBarTheme(
-              backgroundColor: Colors.blueGrey,
-            )
-          ),
-          home: LoginScreen(),
-        );
-      },)
+    return MaterialApp(
+      initialRoute: RoutesName.login,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
