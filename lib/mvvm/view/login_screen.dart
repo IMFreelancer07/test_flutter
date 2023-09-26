@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/mvvm/utils/routes/routes_name.dart';
+import 'package:test_flutter/mvvm/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Center(
             child: InkWell(
                 onTap: (){
-                  Navigator.pushNamed(context, RoutesName.home);
+                  Utils.toastMessage("Clicked Login!");
                 },
                 child: Text("Click to go home"),
             ),
