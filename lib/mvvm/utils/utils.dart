@@ -1,10 +1,11 @@
 
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:smartfluttertoast/smartfluttertoast.dart';
 
 class Utils {
 
   static toastMessage(String message){
 
-    Fluttertoast.showToast(msg: message);
+    Smartfluttertoast().showToast(message);
+    // Fluttertoast.showToast(msg: message);
   }
 }
