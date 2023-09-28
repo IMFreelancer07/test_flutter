@@ -477,14 +477,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  smartfluttertoast:
-    dependency: "direct main"
-    description:
-      name: smartfluttertoast
-      sha256: "52f235d1bc267a3a381f3f313d37f6832f860656a3d1a56394bb91bb7b65a20a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.5"
   source_span:
     dependency: transitive
     description:
@@ -533,6 +525,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
+  toast:
+    dependency: "direct main"
+    description:
+      name: toast
+      sha256: "12433091e3e5a25b3a25f670126e42547c9ade135de30ad9ace45d1ddccd57c9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
   typed_data:
     dependency: transitive
     description:
