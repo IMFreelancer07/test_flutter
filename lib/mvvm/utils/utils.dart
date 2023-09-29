@@ -16,6 +16,7 @@ class Utils {
       flushbar: Flushbar(
         message: message,
         padding: EdgeInsets.all(15),
+        borderRadius: BorderRadius.circular(10),
         margin: EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 10,
