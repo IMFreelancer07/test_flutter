@@ -4,6 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class Utils {
+
+
+  static void fieldFocusShift (
+      BuildContext context,
+      FocusNode current,
+      FocusNode nextNode){
+
+    current.unfocus();
+    FocusScope.of(context).requestFocus(nextNode);
+  }
+
   static toastMessage(String message) {
     Toast.show(message,
         backgroundColor: Colors.black,
