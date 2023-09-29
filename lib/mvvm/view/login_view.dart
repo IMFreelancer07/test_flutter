@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:test_flutter/mvvm/res/components/round_button.dart';
 import 'package:test_flutter/mvvm/utils/routes/routes_name.dart';
 import 'package:test_flutter/mvvm/utils/utils.dart';
+import 'package:test_flutter/mvvm/viewModal/auth_view_modal.dart';
 import 'package:toast/toast.dart';
 
 class LoginView extends StatefulWidget {
@@ -37,6 +39,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final authViewModal = Provider.of<AuthViewModel>(context);
 
     final height = MediaQuery.of(context).size.height * 1;
 
@@ -88,6 +92,7 @@ class _LoginViewState extends State<LoginView> {
             SizedBox(height: height * .070,),
             RoundButton(
               title: "Login",
+              isLoading: authViewModal.loading,
               onPress: (){
 
                 if(_emailController.text.isEmpty){
@@ -97,9 +102,12 @@ class _LoginViewState extends State<LoginView> {
                 }  else if(_passwordController.text.length < 6){
                   Utils.flushBarErrorMessages("Please enter valid password length (6 digits).", context);
                 } else {
-
-                }
-
+                  Map data = {
+                    'email' : _emailController.text.toString(),
+                    'password' : _passwordController.text.toString(),
+                  };
+                  authViewModal.loginApi(data, context);
+                };
               },
             ),
           ],

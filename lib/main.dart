@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/mvvm/viewModal/auth_view_modal.dart';
 
 import 'mvvm/utils/routes/routes.dart';
 import 'mvvm/utils/routes/routes_name.dart';
@@ -20,9 +22,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      initialRoute: RoutesName.login,
-      onGenerateRoute: Routes.generateRoute,
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+              create: (_)=>AuthViewModel()
+          ),
+        ],
+      child: MaterialApp(
+        initialRoute: RoutesName.login,
+        onGenerateRoute: Routes.generateRoute,
+      ),
     );
   }
 }
