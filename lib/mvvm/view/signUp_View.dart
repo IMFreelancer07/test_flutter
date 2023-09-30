@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_flutter/mvvm/res/components/round_button.dart';
 import 'package:test_flutter/mvvm/utils/routes/routes_name.dart';
-import 'package:test_flutter/mvvm/utils/utils.dart';
-import 'package:test_flutter/mvvm/viewModal/auth_view_modal.dart';
 import 'package:toast/toast.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+import '../res/components/round_button.dart';
+import '../utils/utils.dart';
+import '../viewModal/auth_view_modal.dart';
+
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
 
   ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
 
@@ -39,15 +40,17 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-
     final authViewModal = Provider.of<AuthViewModel>(context);
 
-    final height = MediaQuery.of(context).size.height * 1;
+    final height = MediaQuery
+        .of(context)
+        .size
+        .height * 1;
 
     ToastContext().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("Sign Up"),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -64,14 +67,15 @@ class _LoginViewState extends State<LoginView> {
                 labelText: "email",
                 prefixIcon: Icon(Icons.alternate_email),
               ),
-              onFieldSubmitted: (value){
-                Utils.fieldFocusShift(context, emailFocusNode, passwordFocusNode);
+              onFieldSubmitted: (value) {
+                Utils.fieldFocusShift(
+                    context, emailFocusNode, passwordFocusNode);
               },
             ),
 
             ValueListenableBuilder(
                 valueListenable: _obsecurePassword,
-                builder: (context, value, child){
+                builder: (context, value, child) {
                   return TextFormField(
                     controller: _passwordController,
                     obscureText: _obsecurePassword.value,
@@ -82,40 +86,43 @@ class _LoginViewState extends State<LoginView> {
                       labelText: "password",
                       prefixIcon: Icon(Icons.lock_outline),
                       suffixIcon: InkWell(
-                          onTap: (){
-                            _obsecurePassword.value = !_obsecurePassword.value;
-                          },
-                          child: Icon(_obsecurePassword.value ? Icons.visibility_off : Icons.visibility),),
+                        onTap: () {
+                          _obsecurePassword.value = !_obsecurePassword.value;
+                        },
+                        child: Icon(_obsecurePassword.value
+                            ? Icons.visibility_off
+                            : Icons.visibility),),
                     ),
                   );
                 }),
             SizedBox(height: height * .070,),
             RoundButton(
-              title: "Login",
-              isLoading: authViewModal.loading,
-              onPress: (){
-
-                if(_emailController.text.isEmpty){
+              title: "Sign Up",
+              isLoading: authViewModal.loadingSignUp,
+              onPress: () {
+                if (_emailController.text.isEmpty) {
                   Utils.flushBarErrorMessages("Please enter email", context);
-                } else if(_passwordController.text.isEmpty){
+                } else if (_passwordController.text.isEmpty) {
                   Utils.flushBarErrorMessages("Please enter password", context);
-                }  else if(_passwordController.text.length < 6){
-                  Utils.flushBarErrorMessages("Please enter valid password length (6 digits).", context);
+                } else if (_passwordController.text.length < 6) {
+                  Utils.flushBarErrorMessages(
+                      "Please enter valid password length (6 digits).",
+                      context);
                 } else {
                   Map data = {
-                    'email' : _emailController.text.toString(),
-                    'password' : _passwordController.text.toString(),
+                    'email': _emailController.text.toString(),
+                    'password': _passwordController.text.toString(),
                   };
-                  authViewModal.loginApi(data, context);
+                  authViewModal.signUpApi(data, context);
                 };
               },
             ),
             SizedBox(height: height * .02,),
             InkWell(
-                onTap: (){
-                  Navigator.pushNamed(context, RoutesName.sign_up);
-                },
-                child: Text("Don't have an Account? Sign Up Now"),
+              onTap: () {
+                Navigator.pushNamed(context, RoutesName.login);
+              },
+              child: Text("Already have an Account. Go to Login"),
             ),
           ],
         ),
