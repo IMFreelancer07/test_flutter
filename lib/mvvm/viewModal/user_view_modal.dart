@@ -26,7 +26,7 @@ class UserViewModal with ChangeNotifier {
   Future<bool> removeUser() async{
 
     final SharedPreferences sp = await SharedPreferences.getInstance();
-
+    sp.remove("token");
     return sp.clear();
 
   }
