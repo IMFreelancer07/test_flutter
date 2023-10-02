@@ -23,22 +23,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-              create: (_)=>AuthViewModel()
-          ),
-          ChangeNotifierProvider(
-              create: (_)=>UserViewModal()
-          ),
-        ],
-      child: MaterialApp(
-        initialRoute: RoutesName.splash,
-        onGenerateRoute: Routes.generateRoute,
-      ),
-    );
+    return Center(child: Text("Work in progress...!"));
   }
 }
 
 // Center(child: Text("Work in progress...!"))
-// ApiTuts-GetApi!
