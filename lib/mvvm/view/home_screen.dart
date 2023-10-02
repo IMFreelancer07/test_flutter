@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, value, child) {
             switch(value.moviesList.status){
               case Status.LOADING:
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               case Status.ERROR:
                 return Center(child: Text(value.moviesList.message.toString()));
               default:
@@ -100,9 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 });
             }
-            return Container(
-
-          );
         },
         ),
       ),
