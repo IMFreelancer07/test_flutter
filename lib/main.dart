@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_flutter/flutter_firebase/firebase_home.dart';
 import 'package:test_flutter/mvvm/viewModal/auth_view_modal.dart';
 import 'package:test_flutter/mvvm/viewModal/user_view_modal.dart';
 
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    return Center(child: Text("Work in progress...!"));
+    return FirebaseHome();
   }
 }
 
