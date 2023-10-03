@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:test_flutter/flutter_firebase/firebase_home.dart';
-import 'package:test_flutter/mvvm/viewModal/auth_view_modal.dart';
-import 'package:test_flutter/mvvm/viewModal/user_view_modal.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
 
-import 'mvvm/utils/routes/routes.dart';
-import 'mvvm/utils/routes/routes_name.dart';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -25,7 +25,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: FirebaseHome(),
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+      ),
+      home: SplashScreenFirebase(),
     );
   }
 }
