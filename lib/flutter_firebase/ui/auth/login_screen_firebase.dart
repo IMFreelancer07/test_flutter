@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:test_flutter/flutter_firebase/ui/auth/signup_screen_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 
 class LoginScreenFirebase extends StatefulWidget {
@@ -24,75 +26,98 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Firebase Login"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+    return WillPopScope(
+      onWillPop: ()async{
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        SystemNavigator.pop();
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Firebase Login"),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
 
-          children: [
-            
-            Form(
-              key: _formFieldKey,
-              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+
+            children: [
+              
+              Form(
+                key: _formFieldKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                          hintText: "Email",
+                          helperText: "Enter email e.g: user@gmail.com",
+                          prefixIcon: Icon(Icons.alternate_email)
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return "Enter Email";
+                        } else if(!value.contains("@") && !value.contains( ".com")) {
+                          return "Enter valid email address";
+                        }
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: 15,),
+
+                    TextFormField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                          hintText: "Password",
+                          helperText: "Enter password consisting of atleast 8 digits",
+                          prefixIcon: Icon(Icons.lock_outline)
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return "Enter Password";
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 35,),
+
+              RoundButtonFirebase(
+                title: "Login",
+                onTap: (){
+                  if(_formFieldKey.currentState!.validate()){
+
+                  }
+                },
+              ),
+
+              SizedBox(height: 30,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextFormField(
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                        hintText: "Email",
-                        helperText: "Enter email e.g: user@gmail.com",
-                        prefixIcon: Icon(Icons.alternate_email)
-                    ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return "Enter Email";
-                      } else if(!value.contains("@") && !value.contains( ".com")) {
-                        return "Enter valid email address";
-                      }
-                      return null;
+                  Text("Don't have account?"),
+                  TextButton(
+                    onPressed: (){
+                      Navigator.push(context,
+                           MaterialPageRoute(builder: (context)=> SignUpScreenFirebase())
+                      );
                     },
-                  ),
-
-                  SizedBox(height: 15,),
-
-                  TextFormField(
-                    controller: passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                        hintText: "Password",
-                        helperText: "Enter password consisting of atleast 8 digits",
-                        prefixIcon: Icon(Icons.lock_outline)
-                    ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return "Enter Password";
-                      }
-                      return null;
-                    },
-                  ),
+                    child: Text("Signup"),),
                 ],
               ),
-            ),
-
-            SizedBox(height: 35,),
-
-            RoundButtonFirebase(
-              title: "Login",
-              onTap: (){
-                if(_formFieldKey.currentState!.validate()){
-
-                }
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
