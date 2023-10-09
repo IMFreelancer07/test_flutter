@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/login_screen_firebase.dart';
+import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
+import 'package:toast/toast.dart';
 
 class SignUpScreenFirebase extends StatefulWidget {
   const SignUpScreenFirebase({super.key});
@@ -17,6 +19,8 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool loading = false;
+
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
@@ -27,8 +31,33 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
     passwordController.dispose();
   }
 
+  login(){
+    if(_formFieldKey.currentState!.validate()){
+
+      setState(() {
+        loading = true;
+      });
+
+      _auth.createUserWithEmailAndPassword(
+          email: emailController.text.toString(),
+          password: passwordController.text.toString()).then((value){
+        setState(() {
+          loading = false;
+        });
+      }).onError((error, stackTrace){
+        UtilsFirebase().toastMessageFirebase(error.toString());
+        setState(() {
+          loading = false;
+        });
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    ToastContext().init(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Firebase Sign Up"),
@@ -90,12 +119,9 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
 
             RoundButtonFirebase(
               title: "Sign Up",
+              loading: loading,
               onTap: (){
-                if(_formFieldKey.currentState!.validate()){
-                  _auth.createUserWithEmailAndPassword(
-                      email: emailController.text.toString(),
-                      password: passwordController.text.toString());
-                }
+                login();
               },
             ),
 
