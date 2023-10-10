@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test_flutter/flutter_firebase/ui/auth/postsFirebase/postsScreenFirebase.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/signup_screen_firebase.dart';
+import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
+import 'package:toast/toast.dart';
 
 class LoginScreenFirebase extends StatefulWidget {
   const LoginScreenFirebase({super.key});
@@ -15,6 +19,8 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
   final _formFieldKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  bool _loading = false;
 
   @override
   void dispose() {
@@ -24,8 +30,44 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
     passwordController.dispose();
   }
 
+  void login(){
+
+    setState(() {
+      _loading = true;
+    });
+
+    _auth.signInWithEmailAndPassword(
+
+        email: emailController.text.toString(),
+        password: passwordController.text.toString()
+
+    ).then((value) {
+
+      setState(() {
+        _loading = false;
+      });
+
+      UtilsFirebase().toastMessageFirebase(value.user!.email.toString());
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> PostScreenFirebase()));
+
+
+    }).onError((error, stackTrace) {
+
+      setState(() {
+        _loading = false;
+      });
+
+      debugPrint(error.toString());
+      UtilsFirebase().toastMessageFirebase(error.toString());
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    ToastContext().init(context);
+
     return WillPopScope(
       onWillPop: ()async{
 
@@ -94,9 +136,10 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
 
               RoundButtonFirebase(
                 title: "Login",
+                loading: _loading,
                 onTap: (){
                   if(_formFieldKey.currentState!.validate()){
-
+                    login();
                   }
                 },
               ),

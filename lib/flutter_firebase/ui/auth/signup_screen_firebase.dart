@@ -31,7 +31,7 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
     passwordController.dispose();
   }
 
-  login(){
+  signUp(){
     if(_formFieldKey.currentState!.validate()){
 
       setState(() {
@@ -121,7 +121,7 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
               title: "Sign Up",
               loading: loading,
               onTap: (){
-                login();
+                signUp();
               },
             ),
 
