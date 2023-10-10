@@ -1,16 +1,30 @@
 
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/login_screen_firebase.dart';
+import 'package:test_flutter/flutter_firebase/ui/auth/postsFirebase/postsScreenFirebase.dart';
 
 class SplashServicesFirebase{
 
   void isLoggedIn(BuildContext context){
 
-    Timer(Duration(seconds: 3),
-            ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreenFirebase()))
-    );
+    FirebaseAuth _auth = FirebaseAuth.instance;
+
+    final user = _auth.currentUser;
+
+    if(user != null){
+      Timer(Duration(seconds: 3),
+              ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => PostScreenFirebase()))
+      );
+    } else {
+      Timer(Duration(seconds: 3),
+              ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreenFirebase()))
+      );
+    }
+
+
   }
 }
