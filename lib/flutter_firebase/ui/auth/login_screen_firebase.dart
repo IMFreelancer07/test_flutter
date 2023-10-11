@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:test_flutter/flutter_firebase/ui/auth/postsFirebase/postsScreenFirebase.dart';
+import 'package:test_flutter/flutter_firebase/ui/auth/login_with_phone_firebase.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/signup_screen_firebase.dart';
 import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 import 'package:toast/toast.dart';
+
+import '../postsFirebase/postsScreenFirebase.dart';
 
 class LoginScreenFirebase extends StatefulWidget {
   const LoginScreenFirebase({super.key});
@@ -159,6 +161,25 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
                     child: Text("Signup"),),
                 ],
               ),
+              const SizedBox(height: 30,),
+
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneLoginFirebase()));
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(
+                      color: Colors.black
+                    )
+                  ),
+                  child: Center(
+                    child: Text("Login with phone number"),
+                  ),
+                ),
+              )
             ],
           ),
         ),

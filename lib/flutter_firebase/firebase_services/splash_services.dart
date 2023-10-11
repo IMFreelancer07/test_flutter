@@ -5,7 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/login_screen_firebase.dart';
-import 'package:test_flutter/flutter_firebase/ui/auth/postsFirebase/postsScreenFirebase.dart';
+
+import '../ui/postsFirebase/postsScreenFirebase.dart';
 
 class SplashServicesFirebase{
 
