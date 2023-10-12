@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/ui/postsFirebase/postsScreenFirebase.dart';
-
-import '../../../mvvm/res/components/round_button.dart';
+import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 import '../../utils/utils_firebase.dart';
 
 class VerifyPhoneFirebase extends StatefulWidget {
@@ -43,7 +42,7 @@ class _VerifyPhoneFirebaseState extends State<VerifyPhoneFirebase> {
               ),
             ),
             SizedBox(height: 50,),
-            RoundButton(title: "Login", isLoading: _loading, onPress: () async{
+            RoundButtonFirebase(title: "Login", loading: _loading, onTap: () async{
 
               setState(() {
                 _loading = true;
