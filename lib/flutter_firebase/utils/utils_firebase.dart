@@ -4,11 +4,11 @@ import 'package:toast/toast.dart';
 
 class UtilsFirebase{
 
-  void toastMessageFirebase (String message){
+  void toastMessageFirebase (String message, bool success){
     Toast.show(
       message,
-      backgroundColor: Colors.red,
-      textStyle: TextStyle(color: Colors.white, fontSize: 15),
+      backgroundColor: success? Colors.green : Colors.red,
+      textStyle: const TextStyle(color: Colors.white, fontSize: 15),
       duration: 1,
     );
   }

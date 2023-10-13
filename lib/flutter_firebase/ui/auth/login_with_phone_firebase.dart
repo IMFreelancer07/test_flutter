@@ -56,7 +56,7 @@ class _PhoneLoginFirebaseState extends State<PhoneLoginFirebase> {
                     setState(() {
                       _loading = false;
                     });
-                    UtilsFirebase().toastMessageFirebase(e.toString());
+                    UtilsFirebase().toastMessageFirebase(e.toString(), false);
                   },
                   codeSent: (String verificationId, int? tokenMsg){
                     setState(() {
@@ -71,7 +71,7 @@ class _PhoneLoginFirebaseState extends State<PhoneLoginFirebase> {
                     );
                   },
                   codeAutoRetrievalTimeout: (e){
-                    UtilsFirebase().toastMessageFirebase(e.toString());
+                    UtilsFirebase().toastMessageFirebase(e.toString(), false);
                   }
               );
             }),

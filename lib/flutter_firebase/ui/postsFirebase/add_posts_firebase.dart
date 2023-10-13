@@ -1,5 +1,8 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
+import 'package:test_flutter/mvvm/utils/utils.dart';
 
 class AddPostsFirebase extends StatefulWidget {
   const AddPostsFirebase({super.key});
@@ -9,6 +12,11 @@ class AddPostsFirebase extends StatefulWidget {
 }
 
 class _AddPostsFirebaseState extends State<AddPostsFirebase> {
+
+  final postController = TextEditingController();
+  bool loading = false;
+  final databaseRef = FirebaseDatabase.instance.ref('Post');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +30,7 @@ class _AddPostsFirebaseState extends State<AddPostsFirebase> {
             SizedBox(height: 30,),
             TextFormField(
               maxLines: 4,
+              controller: postController,
               decoration: InputDecoration(
                 hintText: "Whats up! Just blurt out :D",
                 border: OutlineInputBorder(),
@@ -30,8 +39,25 @@ class _AddPostsFirebaseState extends State<AddPostsFirebase> {
             SizedBox(height: 30,),
             RoundButtonFirebase(
                 title: "Add",
+                loading: loading,
                 onTap: (){
-
+                  setState(() {
+                    loading = true;
+                  });
+                  databaseRef.child(DateTime.now().millisecondsSinceEpoch.toString()).set({
+                    'id' : DateTime.now().millisecondsSinceEpoch.toString(),
+                    'description' : postController.text.toString()
+                  }).then((value){
+                    setState(() {
+                      loading = false;
+                    });
+                    UtilsFirebase().toastMessageFirebase("Post Added Successfully!", true);
+                  }).onError((error, stackTrace){
+                    setState(() {
+                      loading = false;
+                    });
+                    UtilsFirebase().toastMessageFirebase(error.toString(), false);
+                  });
                 }
             )
           ],

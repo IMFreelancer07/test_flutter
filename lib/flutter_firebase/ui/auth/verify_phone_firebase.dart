@@ -68,7 +68,7 @@ class _VerifyPhoneFirebaseState extends State<VerifyPhoneFirebase> {
                   _loading = false;
                 });
 
-                UtilsFirebase().toastMessageFirebase(e.toString());
+                UtilsFirebase().toastMessageFirebase(e.toString(), false);
               }
 
             }),

@@ -49,7 +49,7 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
         _loading = false;
       });
 
-      UtilsFirebase().toastMessageFirebase(value.user!.email.toString());
+      UtilsFirebase().toastMessageFirebase(value.user!.email.toString(), true);
       Navigator.push(context, MaterialPageRoute(builder: (context)=> PostScreenFirebase()));
 
 
@@ -60,7 +60,7 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
       });
 
       debugPrint(error.toString());
-      UtilsFirebase().toastMessageFirebase(error.toString());
+      UtilsFirebase().toastMessageFirebase(error.toString(), false);
 
     });
   }

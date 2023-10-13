@@ -31,12 +31,12 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
           IconButton(onPressed: (){
             _auth.signOut().then((value){
 
-              UtilsFirebase().toastMessageFirebase("Logged Out successfully");
+              UtilsFirebase().toastMessageFirebase("Logged Out successfully", true);
               Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreenFirebase()));
 
             }).onError((error, stackTrace) {
 
-              UtilsFirebase().toastMessageFirebase("Error Occured \n"+error.toString());
+              UtilsFirebase().toastMessageFirebase("Error Occured \n"+error.toString(), false);
             });
           }, icon: Icon(Icons.logout)),
           SizedBox(width: 10,),

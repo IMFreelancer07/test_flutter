@@ -45,7 +45,7 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
           loading = false;
         });
       }).onError((error, stackTrace){
-        UtilsFirebase().toastMessageFirebase(error.toString());
+        UtilsFirebase().toastMessageFirebase(error.toString(), false);
         setState(() {
           loading = false;
         });
