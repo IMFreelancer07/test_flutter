@@ -58,7 +58,7 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
           Expanded(
             child: FirebaseAnimatedList(
                 query: ref,
-                defaultChild: Text("Loading..."),
+                defaultChild: Center(child: Text("Loading...")),
                 itemBuilder: (context, snapshot, animation, index){
                   return ListTile(
                     title: Text("Post#$index"),
