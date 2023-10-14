@@ -43,7 +43,7 @@ class _userDataApiState extends State<userDataApi> {
                 future: getUserApi(),
                 builder: (context, AsyncSnapshot<List<UserModal>> snapshot) {
                   if(!snapshot.hasData) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   }else {
                     return ListView.builder(
                         itemCount: userList.length,

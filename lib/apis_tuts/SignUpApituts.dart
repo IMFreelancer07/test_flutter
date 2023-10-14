@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
+import 'package:test_flutter/mvvm/utils/utils.dart';
+import 'package:toast/toast.dart';
 
 class SignUp_ApiTuts extends StatefulWidget {
   const SignUp_ApiTuts({super.key});
@@ -28,8 +31,10 @@ class _SignUp_ApiTutsState extends State<SignUp_ApiTuts> {
 
       if (response.statusCode == 200 ){
         print("Account created successfully!");
+        UtilsFirebase().toastMessageFirebase("Account created successfully!", true);
       } else {
         print("Failed! Try again");
+        UtilsFirebase().toastMessageFirebase("Failed! Try again", false);
       }
     }catch (e){
       print(e.toString());
@@ -38,6 +43,9 @@ class _SignUp_ApiTutsState extends State<SignUp_ApiTuts> {
 
   @override
   Widget build(BuildContext context) {
+
+    ToastContext().init(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

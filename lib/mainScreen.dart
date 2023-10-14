@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/apis_tuts/FlutterAPIs.dart';
+import 'package:test_flutter/apis_tuts/api_home_screen.dart';
 import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
 import 'package:test_flutter/home_screen.dart';
@@ -42,8 +44,8 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationDrawerHome()));
                 }),
                 SizedBox(height: 50,),
-                RoundButton(title: "Flutter MVVM", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashViewMVVM()));
+                RoundButton(title: "Flutter RestAPIs", onPress: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FlutterAPIsHome()));
                 }),
                 SizedBox(height: 50,),
                 RoundButton(title: "Firebase Practice", onPress: (){
