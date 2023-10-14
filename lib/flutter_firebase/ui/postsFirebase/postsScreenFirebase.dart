@@ -89,7 +89,7 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
 
                     if(searchFilter.text.isEmpty){
                       return ListTile(
-                        title: Text("Post#$index"),
+                        title: Text("Id # $id"),
                         subtitle: Text(snapshot.child('description').value.toString()),
                       );
                     } else if(desc.toLowerCase().contains(searchFilter.text.toLowerCase().toString())){
