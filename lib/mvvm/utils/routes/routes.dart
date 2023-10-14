@@ -19,7 +19,7 @@ class Routes {
       case RoutesName.sign_up:
         return MaterialPageRoute(builder: (BuildContext context) => SignUpView());
       case RoutesName.splash:
-        return MaterialPageRoute(builder: (BuildContext context) => SplashView());
+        return MaterialPageRoute(builder: (BuildContext context) => SplashViewMVVM());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(

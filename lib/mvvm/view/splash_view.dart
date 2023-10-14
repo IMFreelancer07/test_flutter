@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/mvvm/viewModal/services/splash_services.dart';
 
-class SplashView extends StatefulWidget {
-  const SplashView({super.key});
+class SplashViewMVVM extends StatefulWidget {
+  const SplashViewMVVM({super.key});
 
   @override
-  State<SplashView> createState() => _SplashViewState();
+  State<SplashViewMVVM> createState() => _SplashViewMVVMState();
 }
 
-class _SplashViewState extends State<SplashView> {
+class _SplashViewMVVMState extends State<SplashViewMVVM> {
 
   SplashServices splashServices = SplashServices();
 

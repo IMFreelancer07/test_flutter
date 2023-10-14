@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/main.dart';
 import 'package:test_flutter/second_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class NavigationDrawerHome extends StatefulWidget {
 
   static const String id = "Home_Screen";
-  const HomeScreen({super.key});
+  const NavigationDrawerHome({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<NavigationDrawerHome> createState() => _NavigationDrawerHomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NavigationDrawerHomeState extends State<NavigationDrawerHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.home),
               title: Text("Home"),
               onTap: (){
-                Navigator.pushNamed(context, HomeScreen.id);
+                Navigator.pushNamed(context, NavigationDrawerHome.id);
               },
             ),
             ListTile(

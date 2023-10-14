@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
+import 'package:test_flutter/mainScreen.dart';
 
 
 Future<void> main() async {
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: SplashScreenFirebase(),
+      home: mainScreenFlutter(),
     );
   }
 }

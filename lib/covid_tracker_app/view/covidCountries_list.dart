@@ -20,7 +20,9 @@ class _CovidCountriesListState extends State<CovidCountriesList> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Colors.blueGrey,
+        title: Text("Countries List"),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Column(
