@@ -16,6 +16,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome> {
         appBar: AppBar(
           centerTitle: false,
           title: Text("WhatsApp"),
+          backgroundColor: Colors.teal,
           bottom: const TabBar(
             tabs: [
               Tab(
