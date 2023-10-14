@@ -18,6 +18,7 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
 
   final _auth = FirebaseAuth.instance;
   final ref = FirebaseDatabase.instance.ref('Post');
+  final searchFilter = TextEditingController();
 
   // @override
   // void initState() {
@@ -57,24 +58,53 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
         },
         child: Icon(Icons.add),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: FirebaseAnimatedList(
-                query: ref,
-                defaultChild: Center(child: Text("Loading...")),
-                itemBuilder: (context, snapshot, animation, index){
-                  return ListTile(
-                    title: Text("Post#$index"),
-                    subtitle: Text(snapshot.child('description').value.toString()),
-                    enabled: true,
-                  );
-                }
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 10,),
+            TextFormField(
+              controller: searchFilter,
+              decoration: InputDecoration(
+                hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (String value){
+                setState(() {
+
+                });
+              },
             ),
-          ),
-        ],
+            Expanded(
+              child: FirebaseAnimatedList(
+                  query: ref,
+                  defaultChild: Center(child: Text("Loading...")),
+                  itemBuilder: (context, snapshot, animation, index){
+
+                    final desc = snapshot.child('description').value.toString();
+                    final id = snapshot.child('id').value.toString();
+
+                    if(searchFilter.text.isEmpty){
+                      return ListTile(
+                        title: Text("Post#$index"),
+                        subtitle: Text(snapshot.child('description').value.toString()),
+                      );
+                    } else if(desc.toLowerCase().contains(searchFilter.text.toLowerCase().toString())){
+                      return ListTile(
+                        title: Text("Id # $id"),
+                        subtitle: Text(snapshot.child('description').value.toString()),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
