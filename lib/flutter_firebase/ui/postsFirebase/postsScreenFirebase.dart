@@ -19,6 +19,7 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
   final _auth = FirebaseAuth.instance;
   final ref = FirebaseDatabase.instance.ref('Post');
   final searchFilter = TextEditingController();
+  final editController = TextEditingController();
 
   // @override
   // void initState() {
@@ -91,6 +92,28 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
                       return ListTile(
                         title: Text("Id # $id"),
                         subtitle: Text(snapshot.child('description').value.toString()),
+                        trailing: PopupMenuButton(
+                          icon: Icon(Icons.more_vert),
+                          itemBuilder: (context)=>[
+                            PopupMenuItem(
+                              value: 1,
+                              child: ListTile(
+                              leading: Icon(Icons.edit),
+                              title: Text("Edit"),
+                                onTap: (){
+                                  Navigator.pop(context);
+                                  showMyDialog(desc, id);
+                                },
+                            ),
+                            ),
+                            PopupMenuItem(
+                              value: 2,
+                              child: ListTile(
+                                leading: Icon(Icons.delete),
+                                title: Text("Delete"),
+                              ),),
+                          ],
+                        ),
                       );
                     } else if(desc.toLowerCase().contains(searchFilter.text.toLowerCase().toString())){
                       return ListTile(
@@ -106,6 +129,46 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> showMyDialog(String desc, String id) async {
+    editController.text = desc;
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("Update"),
+            content: Container(
+              child: TextField(
+                controller: editController,
+                decoration: InputDecoration(
+                  hintText: "Edit"
+                ),
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancel")),
+              TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                    ref.child(id).update({
+                      "description" : editController.text.toString()
+                    }).then((value) {
+                      UtilsFirebase().toastMessageFirebase("Data updated successfully!", true);
+                    }).onError((error, stackTrace) {
+                      UtilsFirebase().toastMessageFirebase("Error updating data $error", false);
+                    });
+                  },
+                  child: Text("Update")),
+
+            ],
+          );
+        }
     );
   }
 }
