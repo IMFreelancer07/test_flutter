@@ -15,7 +15,6 @@ class PostScreenFirebase extends StatefulWidget {
 }
 
 class _PostScreenFirebaseState extends State<PostScreenFirebase> {
-
   final _auth = FirebaseAuth.instance;
   final ref = FirebaseDatabase.instance.ref('Post');
   final searchFilter = TextEditingController();
@@ -29,7 +28,6 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
 
   @override
   Widget build(BuildContext context) {
-
     ToastContext().init(context);
 
     return Scaffold(
@@ -38,24 +36,30 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         actions: [
-
-          IconButton(onPressed: (){
-            _auth.signOut().then((value){
-
-              UtilsFirebase().toastMessageFirebase("Logged Out successfully", true);
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreenFirebase()));
-
-            }).onError((error, stackTrace) {
-
-              UtilsFirebase().toastMessageFirebase("Error Occured \n"+error.toString(), false);
-            });
-          }, icon: Icon(Icons.logout)),
-          SizedBox(width: 10,),
+          IconButton(
+              onPressed: () {
+                _auth.signOut().then((value) {
+                  UtilsFirebase()
+                      .toastMessageFirebase("Logged Out successfully", true);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginScreenFirebase()));
+                }).onError((error, stackTrace) {
+                  UtilsFirebase().toastMessageFirebase(
+                      "Error Occured \n" + error.toString(), false);
+                });
+              },
+              icon: Icon(Icons.logout)),
+          SizedBox(
+            width: 10,
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> AddPostsFirebase()));
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AddPostsFirebase()));
         },
         child: Icon(Icons.add),
       ),
@@ -65,7 +69,9 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             TextFormField(
               controller: searchFilter,
               decoration: InputDecoration(
@@ -73,62 +79,63 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
-              onChanged: (String value){
-                setState(() {
-
-                });
+              onChanged: (String value) {
+                setState(() {});
               },
             ),
             Expanded(
               child: FirebaseAnimatedList(
                   query: ref,
                   defaultChild: Center(child: Text("Loading...")),
-                  itemBuilder: (context, snapshot, animation, index){
-
+                  itemBuilder: (context, snapshot, animation, index) {
                     final desc = snapshot.child('description').value.toString();
                     final id = snapshot.child('id').value.toString();
 
-                    if(searchFilter.text.isEmpty){
+                    if (searchFilter.text.isEmpty) {
                       return ListTile(
                         title: Text("Id # $id"),
-                        subtitle: Text(snapshot.child('description').value.toString()),
+                        subtitle: Text(
+                            snapshot.child('description').value.toString()),
                         trailing: PopupMenuButton(
                           icon: Icon(Icons.more_vert),
-                          itemBuilder: (context)=>[
+                          itemBuilder: (context) => [
                             PopupMenuItem(
                               value: 1,
                               child: ListTile(
-                              leading: Icon(Icons.edit),
-                              title: Text("Edit"),
-                                onTap: (){
+                                leading: Icon(Icons.edit),
+                                title: Text("Edit"),
+                                onTap: () {
                                   Navigator.pop(context);
                                   showMyDialog(desc, id);
                                 },
-                            ),
+                              ),
                             ),
                             PopupMenuItem(
                               value: 2,
                               child: ListTile(
                                 leading: Icon(Icons.delete),
                                 title: Text("Delete"),
-                                onTap: (){
+                                onTap: () {
                                   ref.child(id).remove();
                                   Navigator.pop(context);
                                 },
-                              ),),
+                              ),
+                            ),
                           ],
                         ),
                       );
-                    } else if(desc.toLowerCase().contains(searchFilter.text.toLowerCase().toString())){
+                    } else if (desc
+                        .toLowerCase()
+                        .contains(searchFilter.text.toLowerCase().toString())) {
                       return ListTile(
                         title: Text("Id # $id"),
-                        subtitle: Text(snapshot.child('description').value.toString()),
+                        subtitle: Text(
+                            snapshot.child('description').value.toString()),
                       );
                     } else {
                       return Container();
                     }
-                  }
-              ),
+                  }),
             ),
           ],
         ),
@@ -140,40 +147,38 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
     editController.text = desc;
     return showDialog(
         context: context,
-        builder: (BuildContext context){
+        builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Update"),
             content: Container(
               child: TextField(
                 controller: editController,
-                decoration: InputDecoration(
-                  hintText: "Edit"
-                ),
+                decoration: InputDecoration(hintText: "Edit"),
               ),
             ),
             actions: [
               TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                   },
                   child: Text("Cancel")),
               TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                     ref.child(id).update({
-                      "description" : editController.text.toString()
+                      "description": editController.text.toString()
                     }).then((value) {
-                      UtilsFirebase().toastMessageFirebase("Data updated successfully!", true);
+                      UtilsFirebase().toastMessageFirebase(
+                          "Data updated successfully!", true);
                     }).onError((error, stackTrace) {
-                      UtilsFirebase().toastMessageFirebase("Error updating data $error", false);
+                      UtilsFirebase().toastMessageFirebase(
+                          "Error updating data $error", false);
                     });
                   },
                   child: Text("Update")),
-
             ],
           );
-        }
-    );
+        });
   }
 }
 
