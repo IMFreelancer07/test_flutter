@@ -7,6 +7,7 @@ import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 import 'package:toast/toast.dart';
 
+import '../../firebase_services/MainNavScreen.dart';
 import '../postsFirebase/postsScreenFirebase.dart';
 
 class LoginScreenFirebase extends StatefulWidget {
@@ -50,7 +51,7 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
       });
 
       UtilsFirebase().toastMessageFirebase(value.user!.email.toString(), true);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> PostScreenFirebase()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> MainNavScreenFirebase()));
 
 
     }).onError((error, stackTrace) {

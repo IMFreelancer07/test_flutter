@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter/flutter_firebase/firebase_services/MainNavScreen.dart';
 import 'package:test_flutter/flutter_firebase/ui/postsFirebase/postsScreenFirebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 import '../../utils/utils_firebase.dart';
@@ -61,7 +62,7 @@ class _VerifyPhoneFirebaseState extends State<VerifyPhoneFirebase> {
                   _loading = false;
                 });
 
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> PostScreenFirebase()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> MainNavScreenFirebase()));
               }catch(e){
 
                 setState(() {

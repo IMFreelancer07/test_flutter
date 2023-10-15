@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter/flutter_firebase/firebase_services/MainNavScreen.dart';
 import 'package:test_flutter/flutter_firebase/ui/Firestore/firestore_list_screen.dart';
 import 'package:test_flutter/flutter_firebase/ui/auth/login_screen_firebase.dart';
 
@@ -19,7 +20,7 @@ class SplashServicesFirebase{
 
     if(user != null){
       Timer(Duration(seconds: 3),
-              ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => fireStoreScreen()))
+              ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => MainNavScreenFirebase()))
       );
     } else {
       Timer(Duration(seconds: 3),

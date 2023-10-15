@@ -20,7 +20,8 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
   final _auth = FirebaseAuth.instance;
   final searchFilter = TextEditingController();
   final editController = TextEditingController();
-  final firebaseCollectionRef = FirebaseFirestore.instance.collection("Users").snapshots();
+  final firebaseColSnapshotRef = FirebaseFirestore.instance.collection("Users").snapshots();
+  final firebaseCollectionRef = FirebaseFirestore.instance.collection("Users");
 
   // @override
   // void initState() {
@@ -87,8 +88,9 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
             ),
 
             StreamBuilder<QuerySnapshot>(
-                stream: firebaseCollectionRef,
+                stream: firebaseColSnapshotRef,
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+
 
                   if(snapshot.connectionState == ConnectionState.waiting){
                     return CircularProgressIndicator();
@@ -101,9 +103,38 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                       child: ListView.builder(
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
+                            String id = snapshot.data!.docs[index]['id'].toString();
+                            String title = snapshot.data!.docs[index]['title'].toString();
                             return ListTile(
-                              title: Text(snapshot.data!.docs[index]['id'].toString()),
-                              subtitle: Text(snapshot.data!.docs[index]['title'].toString()),
+                              title: Text(id),
+                              subtitle: Text(title),
+                              trailing: PopupMenuButton(
+                                icon: Icon(Icons.more_vert),
+                                itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    value: 1,
+                                    child: ListTile(
+                                      leading: Icon(Icons.edit),
+                                      title: Text("Edit"),
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                        showMyDialog(title, id);
+                                      },
+                                    ),
+                                  ),
+                                  PopupMenuItem(
+                                    value: 2,
+                                    child: ListTile(
+                                      leading: Icon(Icons.delete),
+                                      title: Text("Delete"),
+                                      onTap: () {
+                                        firebaseCollectionRef.doc(id).delete();
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
                             );
                           }),
                     );
@@ -136,6 +167,15 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                   child: Text("Cancel")),
               TextButton(
                   onPressed: () {
+                    firebaseCollectionRef.doc(id).update({
+                      "title": editController.text.toString()
+                    }).then((value) {
+                      UtilsFirebase().toastMessageFirebase(
+                          "Data updated successfully!", true);
+                    }).onError((error, stackTrace) {
+                      UtilsFirebase().toastMessageFirebase(
+                          "Error updating data $error", false);
+                    });
                   },
                   child: Text("Update")),
             ],
