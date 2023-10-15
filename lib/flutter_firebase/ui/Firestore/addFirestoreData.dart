@@ -1,26 +1,27 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 
-class AddPostsFirebase extends StatefulWidget {
-  const AddPostsFirebase({super.key});
+class addFireStoreData extends StatefulWidget {
+  const addFireStoreData({super.key});
 
   @override
-  State<AddPostsFirebase> createState() => _AddPostsFirebaseState();
+  State<addFireStoreData> createState() => _addFireStoreDataState();
 }
 
-class _AddPostsFirebaseState extends State<AddPostsFirebase> {
+class _addFireStoreDataState extends State<addFireStoreData> {
 
   final postController = TextEditingController();
   bool loading = false;
-  final databaseRef = FirebaseDatabase.instance.ref('Post');
+  final firebaseCollectionRef = FirebaseFirestore.instance.collection("Users");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Post"),
+        title: Text("Add Firestore Post"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -46,19 +47,20 @@ class _AddPostsFirebaseState extends State<AddPostsFirebase> {
 
                   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
-                  databaseRef.child(id).set({
+                  firebaseCollectionRef.doc(id).set({
+
                     'id' : id,
-                    'description' : postController.text.toString()
+                    'title' : postController.text.toString()
                   }).then((value){
+                    UtilsFirebase().toastMessageFirebase("Insertion Successful!", true);
                     setState(() {
                       loading = false;
                     });
-                    UtilsFirebase().toastMessageFirebase("Post Added Successfully!", true);
                   }).onError((error, stackTrace){
+                    UtilsFirebase().toastMessageFirebase("Error $error", false);
                     setState(() {
                       loading = false;
                     });
-                    UtilsFirebase().toastMessageFirebase(error.toString(), false);
                   });
                 }
             )
