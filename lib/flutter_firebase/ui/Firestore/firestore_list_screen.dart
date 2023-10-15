@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
@@ -19,6 +20,7 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
   final _auth = FirebaseAuth.instance;
   final searchFilter = TextEditingController();
   final editController = TextEditingController();
+  final firebaseCollectionRef = FirebaseFirestore.instance.collection("Users").snapshots();
 
   // @override
   // void initState() {
@@ -69,12 +71,12 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextFormField(
               controller: searchFilter,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Search",
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
@@ -83,15 +85,29 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                 setState(() {});
               },
             ),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index){
-                return ListTile(
-                  title: Text("Firestore..."),
 
-                );
-              }),
+            StreamBuilder<QuerySnapshot>(
+                stream: firebaseCollectionRef,
+                builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+
+                  if(snapshot.connectionState == ConnectionState.waiting){
+                    return CircularProgressIndicator();
+                  }
+
+                  if (snapshot.hasError){
+                    UtilsFirebase().toastMessageFirebase("Error", false);
+                  }
+                    return Expanded(
+                      child: ListView.builder(
+                          itemCount: snapshot.data!.docs.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(snapshot.data!.docs[index]['id'].toString()),
+                              subtitle: Text(snapshot.data!.docs[index]['title'].toString()),
+                            );
+                          }),
+                    );
+                }
             ),
           ],
         ),
