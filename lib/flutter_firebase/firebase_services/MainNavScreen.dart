@@ -19,20 +19,23 @@ class _MainNavScreenFirebaseState extends State<MainNavScreenFirebase> {
         title: Text("Wellcome to Firebase"),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 50,),
-          RoundButtonFirebase(title: "Firebase Realtime Database", onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => PostScreenFirebase()));
-          }),
-          SizedBox(height: 50,),
-          RoundButtonFirebase(title: "Firestore Database", onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => fireStoreScreen()));
-          }),
-          SizedBox(height: 50,),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 50,),
+            RoundButtonFirebase(title: "Firebase Realtime Database", onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PostScreenFirebase()));
+            }),
+            SizedBox(height: 50,),
+            RoundButtonFirebase(title: "Firestore Database", onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => fireStoreScreen()));
+            }),
+            SizedBox(height: 50,),
+          ],
+        ),
       ),
     );
   }

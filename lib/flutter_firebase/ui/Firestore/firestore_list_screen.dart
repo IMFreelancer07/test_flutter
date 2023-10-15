@@ -167,6 +167,7 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                   child: Text("Cancel")),
               TextButton(
                   onPressed: () {
+                    Navigator.pop(context);
                     firebaseCollectionRef.doc(id).update({
                       "title": editController.text.toString()
                     }).then((value) {
