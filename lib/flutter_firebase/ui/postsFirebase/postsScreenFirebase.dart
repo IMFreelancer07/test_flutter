@@ -111,6 +111,10 @@ class _PostScreenFirebaseState extends State<PostScreenFirebase> {
                               child: ListTile(
                                 leading: Icon(Icons.delete),
                                 title: Text("Delete"),
+                                onTap: (){
+                                  ref.child(id).remove();
+                                  Navigator.pop(context);
+                                },
                               ),),
                           ],
                         ),
