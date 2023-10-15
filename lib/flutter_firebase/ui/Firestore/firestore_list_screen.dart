@@ -20,7 +20,8 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
   final _auth = FirebaseAuth.instance;
   final searchFilter = TextEditingController();
   final editController = TextEditingController();
-  final firebaseColSnapshotRef = FirebaseFirestore.instance.collection("Users").snapshots();
+  final firebaseColSnapshotRef =
+      FirebaseFirestore.instance.collection("Users").snapshots();
   final firebaseCollectionRef = FirebaseFirestore.instance.collection("Users");
 
   // @override
@@ -86,25 +87,26 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                 setState(() {});
               },
             ),
-
             StreamBuilder<QuerySnapshot>(
                 stream: firebaseColSnapshotRef,
-                builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-
-
-                  if(snapshot.connectionState == ConnectionState.waiting){
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
                   }
 
-                  if (snapshot.hasError){
+                  if (snapshot.hasError) {
                     UtilsFirebase().toastMessageFirebase("Error", false);
                   }
-                    return Expanded(
-                      child: ListView.builder(
-                          itemCount: snapshot.data!.docs.length,
-                          itemBuilder: (context, index) {
-                            String id = snapshot.data!.docs[index]['id'].toString();
-                            String title = snapshot.data!.docs[index]['title'].toString();
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          String id =
+                              snapshot.data!.docs[index]['id'].toString();
+                          String title =
+                              snapshot.data!.docs[index]['title'].toString();
+                          if (searchFilter.text.isEmpty) {
                             return ListTile(
                               title: Text(id),
                               subtitle: Text(title),
@@ -136,10 +138,18 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
                                 ],
                               ),
                             );
-                          }),
-                    );
-                }
-            ),
+                          } else if (title.toLowerCase().contains(
+                              searchFilter.text.toLowerCase().toString())) {
+                            return ListTile(
+                              title: Text(id),
+                              subtitle: Text(title),
+                            );
+                          } else {
+                            return Container();
+                          }
+                        }),
+                  );
+                }),
           ],
         ),
       ),
@@ -168,9 +178,10 @@ class _fireStoreScreenState extends State<fireStoreScreen> {
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    firebaseCollectionRef.doc(id).update({
-                      "title": editController.text.toString()
-                    }).then((value) {
+                    firebaseCollectionRef
+                        .doc(id)
+                        .update({"title": editController.text.toString()}).then(
+                            (value) {
                       UtilsFirebase().toastMessageFirebase(
                           "Data updated successfully!", true);
                     }).onError((error, stackTrace) {
