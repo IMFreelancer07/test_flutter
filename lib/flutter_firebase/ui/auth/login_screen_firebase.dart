@@ -8,7 +8,7 @@ import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 import 'package:toast/toast.dart';
 
 import '../../firebase_services/MainNavScreen.dart';
-import '../postsFirebase/postsScreenFirebase.dart';
+import '../forgotPasswordFirebase.dart';
 
 class LoginScreenFirebase extends StatefulWidget {
   const LoginScreenFirebase({super.key});
@@ -135,7 +135,7 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
                 ),
               ),
 
-              SizedBox(height: 35,),
+              SizedBox(height: 30,),
 
               RoundButtonFirebase(
                 title: "Login",
@@ -146,8 +146,18 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
                   }
                 },
               ),
-
-              SizedBox(height: 30,),
+              SizedBox(height: 10,),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: TextButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=> forgotPasswordFirebase())
+                    );
+                  },
+                  child: Text("Forgot password?"),),
+              ),
+              SizedBox(height: 05,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -162,8 +172,7 @@ class _LoginScreenFirebaseState extends State<LoginScreenFirebase> {
                     child: Text("Signup"),),
                 ],
               ),
-              const SizedBox(height: 30,),
-
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneLoginFirebase()));
