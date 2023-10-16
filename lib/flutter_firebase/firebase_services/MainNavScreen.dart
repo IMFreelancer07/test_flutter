@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutter_firebase/ui/postsFirebase/postsScreenFirebase.dart';
+import 'package:test_flutter/flutter_firebase/ui/uploadImageFirebase.dart';
 import 'package:test_flutter/flutter_firebase/widgets/Round_Button.dart';
 
 import '../ui/Firestore/firestore_list_screen.dart';
@@ -56,6 +57,10 @@ class _MainNavScreenFirebaseState extends State<MainNavScreenFirebase> {
             SizedBox(height: 50,),
             RoundButtonFirebase(title: "Firestore Database", onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => fireStoreScreen()));
+            }),
+            SizedBox(height: 50,),
+            RoundButtonFirebase(title: "Upload Image Firebase", onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => uploadImageFirebase()));
             }),
             SizedBox(height: 50,),
           ],
