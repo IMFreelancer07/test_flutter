@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/apis_tuts/FlutterAPIs.dart';
-import 'package:test_flutter/apis_tuts/api_home_screen.dart';
 import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/mainSocialMedia.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
 import 'package:test_flutter/home_screen.dart';
 import 'package:test_flutter/multirole_App/splash_screen.dart';
 import 'package:test_flutter/mvvm/res/components/round_button.dart';
-import 'package:test_flutter/mvvm/view/splash_view.dart';
 import 'package:test_flutter/whatsapp_home.dart';
 
 class mainScreenFlutter extends StatefulWidget {

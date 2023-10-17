@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
+import 'package:test_flutter/flutter_firebase/utils/utils_firebase.dart';
+import 'package:toast/toast.dart';
 
 class uploadFile_PostApi extends StatefulWidget {
   const uploadFile_PostApi({super.key});
@@ -60,11 +62,13 @@ class _uploadFile_PostApiState extends State<uploadFile_PostApi> {
 
     if (response.statusCode == 200){
       print("Image uploaded successfully!");
+      UtilsFirebase().toastMessageFirebase("Upload successful!", true);
       setState(() {
         showSpinner = false;
       });
     }else{
       print("Error! failed to upload image to server!");
+      UtilsFirebase().toastMessageFirebase("Error! failed to upload!", false);
       setState(() {
         showSpinner = false;
       });
@@ -73,6 +77,9 @@ class _uploadFile_PostApiState extends State<uploadFile_PostApi> {
 
   @override
   Widget build(BuildContext context) {
+
+    ToastContext().init(context);
+
     return ModalProgressHUD(
       inAsyncCall: showSpinner,
       child: Scaffold(
@@ -114,7 +121,7 @@ class _uploadFile_PostApiState extends State<uploadFile_PostApi> {
                 child: Container(
                   height: 50,
                   color: Colors.blueGrey,
-                  child: Center(child: Text("Upload"),),
+                  child: Center(child: Text("Upload",style: TextStyle(color: Colors.white),),),
                 ),
               ),
             ),

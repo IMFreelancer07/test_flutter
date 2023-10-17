@@ -47,6 +47,10 @@ class _FlutterAPIsHomeState extends State<FlutterAPIsHome> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>uploadFile_PostApi()));
                 }),
                 SizedBox(height: 50,),
+                RoundButton(title: "RestAPI upload", onPress: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>uploadFile_PostApi()));
+                }),
+                SizedBox(height: 50,),
               ],
             ),
           )
