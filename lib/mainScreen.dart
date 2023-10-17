@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/apis_tuts/FlutterAPIs.dart';
 import 'package:test_flutter/apis_tuts/api_home_screen.dart';
 import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/mainSocialMedia.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
 import 'package:test_flutter/home_screen.dart';
 import 'package:test_flutter/multirole_App/splash_screen.dart';
@@ -53,8 +54,8 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Splash_Screen()));
                 }),
                 SizedBox(height: 30,),
-                RoundButton(title: "Firebase Practice", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashViewMVVM()));
+                RoundButton(title: "Social Media App", onPress: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>mainSocialMedia()));
                 }),
                 SizedBox(height: 30,),
               ],

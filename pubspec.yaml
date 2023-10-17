@@ -54,6 +54,8 @@ dependencies:
   firebase_storage: ^11.2.7
   cloud_firestore: ^4.9.2
   firebase_database: ^10.2.7
+  persistent_bottom_nav_bar:
+  flutter_svg:
 
 
 dev_dependencies:
@@ -80,7 +82,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
+    - assets/images/
     - images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -107,6 +109,19 @@ flutter:
    - family: Rubik Regular
      fonts:
        - asset: fonts/rubik_regular.ttf
+   - family: SF-Pro-Display-Bold
+     fonts:
+       - asset: assets/fonts/SF-Pro-Display-Bold.otf
+   - family: SF-Pro-Display-Regular
+     fonts:
+       - asset: assets/fonts/SF-Pro-Display-Regular.otf
+   - family:  SF-Pro-Display-Light
+     fonts:
+       - asset: assets/fonts/SF-Pro-Display-Light.otf
+
+   - family:  SF-Pro-Display-Medium
+     fonts:
+       - asset: assets/fonts/SF-Pro-Display-Medium.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
