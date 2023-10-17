@@ -5,7 +5,9 @@ import 'package:test_flutter/firebaseSocialMediaApp/mainSocialMedia.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
 import 'package:test_flutter/home_screen.dart';
 import 'package:test_flutter/multirole_App/splash_screen.dart';
+import 'package:test_flutter/mvvm/MVVM_main.dart';
 import 'package:test_flutter/mvvm/res/components/round_button.dart';
+import 'package:test_flutter/navigations/Navigations_main.dart';
 import 'package:test_flutter/whatsapp_home.dart';
 
 class mainScreenFlutter extends StatefulWidget {
@@ -41,7 +43,7 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                 }),
                 SizedBox(height: 30,),
                 RoundButton(title: "Flutter Navigation Drawer", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationDrawerHome()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Navigations_main()));
                 }),
                 SizedBox(height: 30,),
                 RoundButton(title: "Flutter RestAPIs", onPress: (){
@@ -50,6 +52,10 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                 SizedBox(height: 30,),
                 RoundButton(title: "Flutter MultiroleApp", onPress: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Splash_Screen()));
+                }),
+                SizedBox(height: 30,),
+                RoundButton(title: "Flutter MVVM", onPress: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MVVM_main()));
                 }),
                 SizedBox(height: 30,),
                 RoundButton(title: "Social Media App", onPress: (){
