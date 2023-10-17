@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/main.dart';
+import 'package:test_flutter/mainScreen.dart';
 import 'package:test_flutter/second_screen.dart';
 
 class NavigationDrawerHome extends StatefulWidget {
@@ -52,7 +53,7 @@ class _NavigationDrawerHomeState extends State<NavigationDrawerHome> {
               leading: Icon(Icons.logout),
               title: Text("Logout"),
               onTap: (){
-                Navigator.pushNamed(context, MyApp.id);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>mainScreenFlutter()));
               },
             ),
           ],

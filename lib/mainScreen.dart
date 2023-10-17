@@ -11,6 +11,7 @@ import 'package:test_flutter/navigations/Navigations_main.dart';
 import 'package:test_flutter/whatsapp_home.dart';
 
 class mainScreenFlutter extends StatefulWidget {
+  static const String id = "Main_Screen";
   const mainScreenFlutter({super.key});
 
   @override
@@ -43,7 +44,7 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                 }),
                 SizedBox(height: 30,),
                 RoundButton(title: "Flutter Navigation Drawer", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Navigations_main()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationDrawerHome()));
                 }),
                 SizedBox(height: 30,),
                 RoundButton(title: "Flutter RestAPIs", onPress: (){
