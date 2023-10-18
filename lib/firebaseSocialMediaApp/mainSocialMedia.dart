@@ -41,7 +41,7 @@ class _mainSocialMediaState extends State<mainSocialMedia> {
         ),
       ),
       home: const socialMedia_SplashScreen(),
-      initialRoute: socialMedia_RouteName.splashScreen,
+      initialRoute: socialMedia_RouteName.loginView,
       onGenerateRoute: socialMedia_Routes.generateRoute,
     );
   }
