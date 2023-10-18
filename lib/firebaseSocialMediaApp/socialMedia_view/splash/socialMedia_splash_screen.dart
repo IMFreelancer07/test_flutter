@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_color.dart';
 
 import '../../socialMedia_res/socialMedia_fonts.dart';
 
@@ -16,7 +17,7 @@ class _socialMedia_SplashScreenState extends State<socialMedia_SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.defaultColor,
       body: SafeArea(
           child:Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +26,7 @@ class _socialMedia_SplashScreenState extends State<socialMedia_SplashScreen> {
               Image(image: AssetImage('assets/images/logo.png')),
               const Padding(
                 padding:  EdgeInsets.symmetric(vertical: 20),
-                child: Center(child: Text('Syedtechsolutions' , style: TextStyle(fontFamily: AppFonts.sfProDisplayBold , fontSize: 40, fontWeight: FontWeight.w700),)),
+                child: Center(child: Text('Syedtechsolutions' , style: TextStyle(color: AppColors.whiteColor, fontFamily: AppFonts.sfProDisplayBold , fontSize: 40, fontWeight: FontWeight.w700),)),
               )
             ],
           )

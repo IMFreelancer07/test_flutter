@@ -24,6 +24,8 @@ class AppColors {
   static const Color alertColor =  Color(0xffff0222);
   static const Color whiteColor =  Color(0xffffffff);
 
+  static const Color defaultColor =  Color(0xff667c7d);
+
   static const Color focusUnderLineColor =  Color(0xff373737);
   static const Color dividedColor =  Color(0xff373737);
   static const Color grayColor =  Color(0xffdfdfe1);
