@@ -22,10 +22,10 @@ class _socialMedia_SplashScreenState extends State<socialMedia_SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image(image: AssetImage('assets/images/logo.jpg')),
+              Image(image: AssetImage('assets/images/logo.png')),
               const Padding(
                 padding:  EdgeInsets.symmetric(vertical: 20),
-                child: Center(child: Text('Tech Brothers Media' , style: TextStyle(fontFamily: AppFonts.sfProDisplayBold , fontSize: 40, fontWeight: FontWeight.w700),)),
+                child: Center(child: Text('Syedtechsolutions' , style: TextStyle(fontFamily: AppFonts.sfProDisplayBold , fontSize: 40, fontWeight: FontWeight.w700),)),
               )
             ],
           )
