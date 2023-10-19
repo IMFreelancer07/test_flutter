@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/services/socialMedia_splash_services.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_color.dart';
 
 import '../../socialMedia_res/socialMedia_fonts.dart';
@@ -14,6 +15,17 @@ class socialMedia_SplashScreen extends StatefulWidget {
 }
 
 class _socialMedia_SplashScreenState extends State<socialMedia_SplashScreen> {
+
+  socialMedia_SplashServices splashServices = socialMedia_SplashServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    splashServices.isLoggedIn(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

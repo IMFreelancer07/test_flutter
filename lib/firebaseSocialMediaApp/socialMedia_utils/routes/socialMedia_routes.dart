@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/login/socialMedia_login_screen.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/signup/socialMedia_sign_up_screen.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/splash/socialMedia_splash_screen.dart';
 
 
@@ -15,6 +16,8 @@ class socialMedia_Routes {
       case socialMedia_RouteName.loginView:
         return MaterialPageRoute(builder: (_) => const socialMedia_loginScreen());
 
+      case socialMedia_RouteName.singUp_View:
+        return MaterialPageRoute(builder: (_) => const socialMedia_Signup_View());
 
       default:
         return MaterialPageRoute(builder: (_) {
