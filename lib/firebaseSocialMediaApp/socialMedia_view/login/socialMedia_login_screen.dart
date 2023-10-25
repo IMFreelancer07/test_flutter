@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/socialMedia_login/socialMedia_login_controller.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_input_text_field.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_round_button.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
@@ -115,10 +117,26 @@ class _socialMedia_loginScreenState extends State<socialMedia_loginScreen> {
 
                 SizedBox(height: height * 0.03,),
 
-                socialMedia_RoundButton(
-                  title: "Login",
-                  onPress: () {},
+                ChangeNotifierProvider(
+                    create: (_) => socialMedia_loginController(),
+                  child: Consumer<socialMedia_loginController>(
+                    builder: (context, provider, child){
+                      return socialMedia_RoundButton(
+                        title: "Login",
+                        isLoading: provider.loading,
+                        onPress: () {
+                          if(_formKey.currentState!.validate()){
+                            provider.login(context, emailController.text, passworController.text);
+                          }
+                        },
+                      );
+                    },
+                  ),
                 ),
+
+                SizedBox(height: height * 0.03,),
+
+
 
                 SizedBox(height: height * 0.03,),
 

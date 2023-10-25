@@ -34,7 +34,7 @@ class socialMedia_singUpController with ChangeNotifier {
         }).then((value) {
           setLoading(false);
           socialMedia_utils.toastMessage_socialMedia("User Created Successfully", true);
-          Navigator.pushNamed(context, socialMedia_RouteName.dashboard_view);
+          Navigator.pushNamed(context, socialMedia_RouteName.loginView);
         }).onError((error, stackTrace) {
           setLoading(false);
           socialMedia_utils.toastMessage_socialMedia(error.toString(), false);
