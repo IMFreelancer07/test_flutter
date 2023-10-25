@@ -4,6 +4,7 @@ import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/social
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_input_text_field.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_round_button.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
+import 'package:toast/toast.dart';
 
 class socialMedia_loginScreen extends StatefulWidget {
   const socialMedia_loginScreen({super.key});
@@ -36,6 +37,7 @@ class _socialMedia_loginScreenState extends State<socialMedia_loginScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
+    ToastContext().init(context);
 
     return SafeArea(
       child: Scaffold(

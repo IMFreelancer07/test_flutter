@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/services/socialMedia_sessionManager.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/socialMedia_utils.dart';
+import 'package:toast/toast.dart';
 
 class socialMedia_DashboardScreen extends StatefulWidget {
   const socialMedia_DashboardScreen({super.key});
@@ -15,6 +16,7 @@ class _socialMedia_DashboardScreenState extends State<socialMedia_DashboardScree
   @override
   Widget build(BuildContext context) {
     final _auth = FirebaseAuth.instance;
+    ToastContext().init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Wellcome to Dashboard"),
