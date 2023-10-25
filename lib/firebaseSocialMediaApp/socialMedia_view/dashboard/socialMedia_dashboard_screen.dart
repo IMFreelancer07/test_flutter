@@ -26,7 +26,7 @@ class _socialMedia_DashboardScreenState extends State<socialMedia_DashboardScree
           IconButton(
               onPressed: () {
                 _auth.signOut().then((value) {
-                  socialMedia_sessionManager().userId = null;
+                  socialMedia_sessionManager().userId = "";
                   socialMedia_utils.toastMessage_socialMedia("Logged Out successfully", true);
                   Navigator.pushNamed(
                       context,
