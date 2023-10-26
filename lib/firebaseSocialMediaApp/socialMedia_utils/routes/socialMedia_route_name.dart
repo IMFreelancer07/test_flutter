@@ -6,6 +6,8 @@ class socialMedia_RouteName {
 
   static const String singUp_View = 'sign_up_view';
 
+  static const String forgotPassword_View = 'forgot_password_view';
+
   static const String dashboard_view = "dashboard_view";
 
 

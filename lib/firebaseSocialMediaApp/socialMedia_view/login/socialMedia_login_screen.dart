@@ -111,9 +111,14 @@ class _socialMedia_loginScreenState extends State<socialMedia_loginScreen> {
 
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text(
-                      "Forgot password?",
-                      style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 15, decoration: TextDecoration.underline)
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, socialMedia_RouteName.forgotPassword_View);
+                    },
+                    child: Text(
+                        "Forgot password?",
+                        style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 15, decoration: TextDecoration.underline)
+                    ),
                   ),
                 ),
 
