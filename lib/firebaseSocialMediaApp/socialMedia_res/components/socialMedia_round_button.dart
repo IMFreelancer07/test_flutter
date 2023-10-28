@@ -12,7 +12,7 @@ class socialMedia_RoundButton extends StatelessWidget {
      required this.title,
      this.isLoading = false,
      required this.onPress,
-     this.color = AppColors.primaryColor,
+     this.color = AppColors.primaryButtonColor,
      this.textColor = Colors.white,
    });
 
