@@ -6,6 +6,7 @@ import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/socialMedia_utils.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/dashboard/profile/socialMedia_profile.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/dashboard/user/socialMedia_userListScreen.dart';
 import 'package:toast/toast.dart';
 
 class socialMedia_DashboardScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _socialMedia_DashboardScreenState extends State<socialMedia_DashboardScree
       Text("Home"),
       Text("Chat"),
       Text("Add"),
-      Text("Message"),
+      socialMedia_userListScreen(),
       socialMedia_profileScreen(),
     ];
   }

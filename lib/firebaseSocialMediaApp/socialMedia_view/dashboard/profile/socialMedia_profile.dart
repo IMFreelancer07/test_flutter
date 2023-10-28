@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,8 @@ import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/servic
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/socialMedia_profile/socialMedia_profileController.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_round_button.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_color.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/socialMedia_utils.dart';
 import 'package:toast/toast.dart';
 
 class socialMedia_profileScreen extends StatefulWidget {
@@ -19,6 +22,7 @@ class socialMedia_profileScreen extends StatefulWidget {
 class _socialMedia_profileScreenState extends State<socialMedia_profileScreen> {
 
   final ref = FirebaseDatabase.instance.ref('User');
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +129,15 @@ class _socialMedia_profileScreenState extends State<socialMedia_profileScreen> {
 
                           socialMedia_RoundButton(
                               title: "Logout",
-                              onPress: (){}
+                              onPress: (){
+                                _auth.signOut().then((value){
+                                  Navigator.pushNamed(context, socialMedia_RouteName.loginView);
+                                  socialMedia_utils.toastMessage_socialMedia("Loggedout Successfully!", true);
+                                }).onError((error, stackTrace){
+                                  socialMedia_utils.toastMessage_socialMedia(error.toString(), false);
+                                  print(error.toString());
+                                });
+                              }
                           )
                         ],
                       );

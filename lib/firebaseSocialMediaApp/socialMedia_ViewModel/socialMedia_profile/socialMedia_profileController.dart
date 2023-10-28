@@ -89,7 +89,7 @@ class socialMedia_profileController with ChangeNotifier{
   void uploadImage (context) async{
 
     setLoading(true);
-    firebaseStorage.Reference storageRef = firebaseStorage.FirebaseStorage.instance.ref('/profileImage'+socialMedia_sessionManager().userId.toString());
+    firebaseStorage.Reference storageRef = firebaseStorage.FirebaseStorage.instance.ref('/profileImages/'+socialMedia_sessionManager().userId.toString());
 
     firebaseStorage.UploadTask uploadTask = storageRef.putFile(File(image!.path).absolute);
 
