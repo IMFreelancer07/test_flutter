@@ -36,6 +36,7 @@ class socialMedia_inputFormField extends StatelessWidget {
         keyboardType: keyBoardType,
         obscureText: obscureText,
         autofocus: autoFocus,
+        cursorColor: AppColors.primaryTextTextColor,
         style: Theme.of(context).textTheme.bodyText2!.copyWith(height: 0, fontSize: 19),
         decoration: InputDecoration(
           hintText: hint,

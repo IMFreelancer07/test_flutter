@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_ViewModel/services/socialMedia_sessionManager.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/socialMedia_input_text_field.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_color.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebaseStorage;
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/socialMedia_utils.dart';
@@ -13,6 +14,12 @@ class socialMedia_profileController with ChangeNotifier{
 
   DatabaseReference ref = FirebaseDatabase.instance.ref().child('User');
   firebaseStorage.FirebaseStorage storage = firebaseStorage.FirebaseStorage.instance;
+
+  final nameController = TextEditingController();
+  final phoneController = TextEditingController();
+
+  final nameFocusNode = FocusNode();
+  final phoneFocusNode = FocusNode();
 
   final picker = ImagePicker();
   XFile? _image;
@@ -100,5 +107,111 @@ class socialMedia_profileController with ChangeNotifier{
       setLoading(false);
       socialMedia_utils.toastMessage_socialMedia(error.toString(), false);
     });
+  }
+
+  Future<void> showUserNameDialogAlert(BuildContext context, String name){
+
+    nameController.text = name;
+
+    return showDialog(
+        context: context,
+        builder: (context){
+          return AlertDialog(
+            title: Center(child: Text("Update Username")),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  socialMedia_inputFormField(
+                      myController: nameController,
+                      focusNode: nameFocusNode,
+                      onFieldSubmittedValue: (value){},
+                      onValidator: (value){},
+                      keyBoardType: TextInputType.text,
+                      hint: "Update name",
+                      obscureText: false
+                  )
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancel", style: Theme.of(context).textTheme.subtitle2!.copyWith(color: AppColors.alertColor),)
+              ),
+              TextButton(
+                  onPressed: (){
+                    
+                    ref.child(socialMedia_sessionManager().userId.toString()).update({
+                      'userName' : nameController.text.toString()
+                    }).then((value){
+                      nameController.clear();
+                      socialMedia_utils.toastMessage_socialMedia("Name Updated", true);
+                    }).onError((error, stackTrace){
+                      socialMedia_utils.toastMessage_socialMedia(error.toString(), false);
+                    });
+                    
+                    Navigator.pop(context);
+                  },
+                  child: Text("Ok", style: Theme.of(context).textTheme.subtitle2,)
+              ),
+            ],
+          );
+        }
+    );
+  }
+
+  Future<void> showPhoneDialogAlert(BuildContext context, String phone){
+
+    phoneController.text = phone;
+
+    return showDialog(
+        context: context,
+        builder: (context){
+          return AlertDialog(
+            title: Center(child: Text("Update Username")),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  socialMedia_inputFormField(
+                      myController: phoneController,
+                      focusNode: phoneFocusNode,
+                      onFieldSubmittedValue: (value){},
+                      onValidator: (value){},
+                      keyBoardType: TextInputType.phone,
+                      hint: "Update phone",
+                      obscureText: false
+                  )
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancel", style: Theme.of(context).textTheme.subtitle2!.copyWith(color: AppColors.alertColor),)
+              ),
+              TextButton(
+                  onPressed: (){
+
+                    ref.child(socialMedia_sessionManager().userId.toString()).update({
+                      'phone' : phoneController.text.toString()
+                    }).then((value){
+                      phoneController.clear();
+                      socialMedia_utils.toastMessage_socialMedia("Phone Updated", true);
+                    }).onError((error, stackTrace){
+                      socialMedia_utils.toastMessage_socialMedia(error.toString(), false);
+                    });
+
+                    Navigator.pop(context);
+                  },
+                  child: Text("Ok", style: Theme.of(context).textTheme.subtitle2,)
+              ),
+            ],
+          );
+        }
+    );
   }
 }

@@ -27,6 +27,7 @@ class _socialMedia_profileScreenState extends State<socialMedia_profileScreen> {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: ChangeNotifierProvider(
           create: (_) => socialMedia_profileController(),
           child: Consumer<socialMedia_profileController>(
@@ -108,8 +109,16 @@ class _socialMedia_profileScreenState extends State<socialMedia_profileScreen> {
 
                           SizedBox(height: 40,),
 
-                          reuseableRow_socialMedia(iconData: Icons.person, title: "Username", value: map["userName"]),
-                          reuseableRow_socialMedia(iconData: Icons.phone_android, title: "Phone Number", value: map["phone"] == '' ? 'xxx-xxx-xxx-xxxx' : map["phone"]),
+                          GestureDetector(
+                              onTap: (){
+                                provider.showUserNameDialogAlert(context, map["userName"]);
+                              },
+                              child: reuseableRow_socialMedia(iconData: Icons.person, title: "Username", value: map["userName"])),
+                          GestureDetector(
+                              onTap: (){
+                                provider.showPhoneDialogAlert(context, map["phone"]);
+                              },
+                              child: reuseableRow_socialMedia(iconData: Icons.phone_android, title: "Phone Number", value: map["phone"] == '' ? 'xxx-xxx-xxx-xxxx' : map["phone"])),
                           reuseableRow_socialMedia(iconData: Icons.alternate_email, title: "Email", value: map["email"]),
 
                           SizedBox(height: 30,),
