@@ -4,6 +4,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:test_flutter/mainScreen.dart';
 
+import 'flutterHive/models/hiveNotesModel.dart';
+
 
 Future<void> main() async {
 
@@ -12,6 +14,9 @@ Future<void> main() async {
 
   var directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
+
+  Hive.registerAdapter(hiveNotesModelAdapter());
+  await Hive.openBox<hiveNotesModel>("notes");
 
   runApp(const MyApp());
 }
