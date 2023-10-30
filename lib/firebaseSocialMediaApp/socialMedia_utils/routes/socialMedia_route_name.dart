@@ -10,5 +10,7 @@ class socialMedia_RouteName {
 
   static const String dashboard_view = "dashboard_view";
 
+  static const String profile_view = "profile_view";
+
 
 }

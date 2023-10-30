@@ -56,7 +56,8 @@ dependencies:
   firebase_database: ^10.2.7
   persistent_bottom_nav_bar:
   flutter_svg:
-
+  path_provider: ^2.1.1
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

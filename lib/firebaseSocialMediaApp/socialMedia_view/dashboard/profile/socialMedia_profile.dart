@@ -10,6 +10,7 @@ import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/components/s
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_res/socialMedia_color.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/socialMedia_utils.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/login/socialMedia_login_screen.dart';
 import 'package:toast/toast.dart';
 
 class socialMedia_profileScreen extends StatefulWidget {
@@ -131,7 +132,7 @@ class _socialMedia_profileScreenState extends State<socialMedia_profileScreen> {
                               title: "Logout",
                               onPress: (){
                                 _auth.signOut().then((value){
-                                  Navigator.pushNamed(context, socialMedia_RouteName.loginView);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>socialMedia_loginScreen()));
                                   socialMedia_utils.toastMessage_socialMedia("Loggedout Successfully!", true);
                                 }).onError((error, stackTrace){
                                   socialMedia_utils.toastMessage_socialMedia(error.toString(), false);

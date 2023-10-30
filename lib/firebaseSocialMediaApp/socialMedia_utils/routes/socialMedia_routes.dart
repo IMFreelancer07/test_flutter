@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_utils/routes/socialMedia_route_name.dart';
+import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/dashboard/profile/socialMedia_profile.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/dashboard/socialMedia_dashboard_screen.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/forgot_password/socialMedia_forgot_password.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/socialMedia_view/login/socialMedia_login_screen.dart';
@@ -23,6 +24,10 @@ class socialMedia_Routes {
 
       case socialMedia_RouteName.dashboard_view:
         return MaterialPageRoute(builder: (_) => const socialMedia_DashboardScreen());
+
+      case socialMedia_RouteName.profile_view:
+        return MaterialPageRoute(builder: (_) => const socialMedia_profileScreen());
+
 
       case socialMedia_RouteName.forgotPassword_View:
         return MaterialPageRoute(builder: (_) => const socialMedia_forgotPasswordScreen());
