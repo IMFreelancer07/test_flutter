@@ -27,48 +27,54 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                RoundButton(title: "Firebase Practice", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenFirebase()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Covid Tracker App", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenCovidApp()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "WhatsApp UI", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>WhatsAppHome()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Flutter Navigation Drawer", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationDrawerHome()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Flutter RestAPIs", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FlutterAPIsHome()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Flutter MultiroleApp", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Splash_Screen()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Flutter MVVM", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MVVM_main()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Social Media App", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>mainSocialMedia()));
-                }),
-                SizedBox(height: 30,),
-                RoundButton(title: "Hive Database", onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>hiveMain()));
-                }),
-                SizedBox(height: 30,),
-              ],
+          SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  RoundButton(title: "Firebase Practice", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenFirebase()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Covid Tracker App", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenCovidApp()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "WhatsApp UI", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>WhatsAppHome()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Flutter Navigation Drawer", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationDrawerHome()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Flutter RestAPIs", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FlutterAPIsHome()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Flutter MultiroleApp", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Splash_Screen()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Flutter MVVM", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MVVM_main()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Social Media App", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>mainSocialMedia()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Hive Database", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>hiveMain()));
+                  }),
+                  SizedBox(height: 30,),
+                  RoundButton(title: "Flutter GetX", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>hiveMain()));
+                  }),
+                  SizedBox(height: 30,),
+                ],
+              ),
             ),
           )
         ],
