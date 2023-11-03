@@ -69,10 +69,6 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>hiveMain()));
                   }),
                   SizedBox(height: 30,),
-                  RoundButton(title: "Flutter GetX", onPress: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>hiveMain()));
-                  }),
-                  SizedBox(height: 30,),
                 ],
               ),
             ),
