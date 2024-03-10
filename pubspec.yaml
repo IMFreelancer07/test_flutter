@@ -60,6 +60,8 @@ dependencies:
   hive:
   hive_flutter: ^1.1.0
   get: ^4.6.6
+  equatable:
+  bloc:
 
 dev_dependencies:
   build_runner:
