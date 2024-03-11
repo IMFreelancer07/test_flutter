@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/apis_tuts/FlutterAPIs.dart';
 import 'package:test_flutter/covid_tracker_app/view/splash_screen_covid_app.dart';
 import 'package:test_flutter/firebaseSocialMediaApp/mainSocialMedia.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/BlocMain.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/BlocMain.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/counter_screen.dart';
 import 'package:test_flutter/flutterHive/hiveMain.dart';
 import 'package:test_flutter/flutter_firebase/ui/splash_screen.dart';
