@@ -31,7 +31,7 @@ class _BlocTodolistScreenState extends State<BlocTodolistScreen> {
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
-                        context.read<TodoBloc>().add(AddTodoEvents(task: state.todosList[index]));
+                        context.read<TodoBloc>().add(RemoveTodoEvents(task: state.todosList[index]));
                       },
                     ),
                   );
