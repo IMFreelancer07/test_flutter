@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/ui/counter_screen.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/favourite_app/fav_app_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/repository/favourite_repository.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/ui/bloc_fav_app_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_todolist_app/todolist/todolist_bloc.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/bloc_todolist_app/ui/todlist_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/image_picker_bloc/image_picker/image_picker_bloc.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/image_picker_bloc/ui/bloc_image_picker_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/switch_example/switch/switch_bloc.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/switch_example/ui/switch_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/utils/image_picker_utils.dart';
 
 import '../mvvm/res/components/round_button.dart';
@@ -38,9 +37,17 @@ class _BlocMainState extends State<BlocMain> {
           create: (_) => ImagePickerBloc(ImagePickerUtils()),
 
         ),
+        BlocProvider(
+          create: (context) => FavAppBloc(FavouriteRepository()),
+        ),
       ],
-      child: const MaterialApp(
-        home: BlocTodolistScreen(),
+      child: MaterialApp(
+        themeMode: ThemeMode.dark,
+        theme: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.dark
+        ),
+        home: BlocFavAppScreen(),
       ),
     );
   }
