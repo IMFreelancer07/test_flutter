@@ -32,3 +32,8 @@ class UnselectedItemList extends FavAppEvent {
 
   const UnselectedItemList({required this.item});
 }
+
+class DeleteItem extends FavAppEvent {
+
+
+}

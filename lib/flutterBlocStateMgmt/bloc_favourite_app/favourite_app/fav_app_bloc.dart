@@ -15,6 +15,7 @@ class FavAppBloc extends Bloc<FavAppEvent, FavAppState>{
     on<FavItemList>(favItemList);
     on<SelectedItemList>(selectedItemList);
     on<UnselectedItemList>(unselectedfavItemList);
+    on<DeleteItem>(_deleteItem);
   }
 
   void fetchFavList(FetchFavList event, Emitter<FavAppState> emit) async {
@@ -26,15 +27,43 @@ class FavAppBloc extends Bloc<FavAppEvent, FavAppState>{
   void favItemList(FavItemList event, Emitter<FavAppState> emit) async {
 
     final index = favList.indexWhere((element) => element.id == event.item.id);
+
+    if(event.item.isFavourite){
+      if(favList.contains(favList[index])){
+        tempFavList.remove(favList[index]);
+        tempFavList.add(event.item);
+      }
+    }else{
+      if(favList.contains(favList[index])){
+        tempFavList.remove(favList[index]);
+        tempFavList.add(event.item);
+      }
+    }
+
     favList[index] = event.item;
-    emit(state.copyWith(favItemList: List.from(favList)));
+    emit(state.copyWith(favItemList: List.from(favList), tempFavItemList: List.from(tempFavList)));
   }
 
   void selectedItemList(SelectedItemList event, Emitter<FavAppState> emit) async {
 
+    tempFavList.add(event.item);
+    emit(state.copyWith(tempFavItemList: List.from(tempFavList)));
   }
 
   void unselectedfavItemList(UnselectedItemList event, Emitter<FavAppState> emit) async {
+    tempFavList.remove(event.item);
+    emit(state.copyWith(tempFavItemList: List.from(tempFavList)));
+  }
 
+  void _deleteItem(DeleteItem event, Emitter<FavAppState> emit) async {
+
+    for(int i = 0; i< tempFavList.length; i++){
+      favList.remove(tempFavList[i]);
+    }
+    tempFavList.clear();
+    emit(state.copyWith(
+        favItemList: List.from(favList),
+        tempFavItemList: List.from(tempFavList)
+    ));
   }
 }
