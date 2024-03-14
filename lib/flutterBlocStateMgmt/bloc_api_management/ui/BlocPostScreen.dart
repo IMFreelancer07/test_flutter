@@ -35,15 +35,43 @@ class _BlocPostScreenState extends State<BlocPostScreen> {
             return Center(child: Text(state.message.toString()));
           }
           else {
-            return ListView.builder(
-                itemCount: state.list.length,
-                itemBuilder: (context, index){
-                  final item = state.list[index];
-                  return ListTile(
-                    title: Text(item.email.toString()),
-                    subtitle: Text(item.body.toString()),
-                  );
-                }
+            return Column(
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: "Search via Email",
+                    border: OutlineInputBorder()
+                  ),
+                  onChanged: (value){
+                    context.read<PostBloc>().add(SearchPost(searchString: value));
+                  },
+                ),
+                Expanded(
+                  child: state.searchMessage.isNotEmpty ?
+                  Center(child: Text(state.searchMessage.toString())) :
+                  ListView.builder(
+                      itemCount: state.templist.isEmpty ? state.list.length : state.templist.length,
+                      itemBuilder: (context, index){
+
+                        if(state.templist.isNotEmpty){
+                          final item = state.templist[index];
+                          return ListTile(
+                            title: Text(item.email.toString()),
+                            subtitle: Text(item.body.toString()),
+                          );
+                        }else{
+                          final item = state.list[index];
+                          return ListTile(
+                            title: Text(item.email.toString()),
+                            subtitle: Text(item.body.toString()),
+                          );
+                        }
+
+
+                      }
+                  ),
+                ),
+              ],
             );
           }
         },
