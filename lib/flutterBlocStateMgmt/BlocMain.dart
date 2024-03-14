@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/bloc_post/post_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/ui/BlocPostScreen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/favourite_app/fav_app_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/repository/favourite_repository.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/ui/bloc_fav_app_screen.dart';
@@ -7,8 +9,6 @@ import 'package:test_flutter/flutterBlocStateMgmt/bloc_todolist_app/todolist/tod
 import 'package:test_flutter/flutterBlocStateMgmt/image_picker_bloc/image_picker/image_picker_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/switch_example/switch/switch_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/utils/image_picker_utils.dart';
-
-import '../mvvm/res/components/round_button.dart';
 import 'bloc_counter_app/counter/bloc_counter_bloc.dart';
 
 class BlocMain extends StatefulWidget {
@@ -40,6 +40,9 @@ class _BlocMainState extends State<BlocMain> {
         BlocProvider(
           create: (context) => FavAppBloc(FavouriteRepository()),
         ),
+        BlocProvider(
+          create: (context) => PostBloc(),
+        ),
       ],
       child: MaterialApp(
         themeMode: ThemeMode.dark,
@@ -47,7 +50,7 @@ class _BlocMainState extends State<BlocMain> {
           useMaterial3: true,
           brightness: Brightness.dark
         ),
-        home: BlocFavAppScreen(),
+        home: BlocPostScreen(),
       ),
     );
   }
