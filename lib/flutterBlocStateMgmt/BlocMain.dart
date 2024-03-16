@@ -6,6 +6,7 @@ import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/favourite_a
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/repository/favourite_repository.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/ui/bloc_fav_app_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_todolist_app/todolist/todolist_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/flutter_freeze/FreezeHomeScreen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/image_picker_bloc/image_picker/image_picker_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/switch_example/switch/switch_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/utils/image_picker_utils.dart';
