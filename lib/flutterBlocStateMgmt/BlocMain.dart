@@ -51,7 +51,7 @@ class _BlocMainState extends State<BlocMain> {
           useMaterial3: true,
           brightness: Brightness.dark
         ),
-        home: FreezeHomeScreen(),
+        home: BlocPostScreen(),
       ),
     );
   }
