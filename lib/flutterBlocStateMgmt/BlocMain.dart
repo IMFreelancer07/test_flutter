@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/BlockMainScreen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/bloc_post/post_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/ui/BlocPostScreen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/favourite_app/fav_app_bloc.dart';
@@ -51,7 +52,7 @@ class _BlocMainState extends State<BlocMain> {
           useMaterial3: true,
           brightness: Brightness.dark
         ),
-        home: BlocPostScreen(),
+        home: const BlockMainScreen(),
       ),
     );
   }
