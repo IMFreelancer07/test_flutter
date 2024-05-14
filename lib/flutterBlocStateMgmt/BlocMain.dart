@@ -47,10 +47,10 @@ class _BlocMainState extends State<BlocMain> {
         ),
       ],
       child: MaterialApp(
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
         theme: ThemeData(
           useMaterial3: true,
-          brightness: Brightness.dark
+          brightness: Brightness.light
         ),
         home: const BlockMainScreen(),
       ),

@@ -41,10 +41,6 @@ class _BlockMainScreenState extends State<BlockMainScreen> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocTodolistScreen()));
                   }),
                   const SizedBox(height: 30,),
-                  RoundButton(title: "Bloc Freeze", onPress: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FreezeHomeScreen()));
-                  }),
-                  const SizedBox(height: 30,),
                   RoundButton(title: "Bloc Image Picker", onPress: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocImagePickerScreen()));
                   }),
