@@ -25,12 +25,11 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SingleChildScrollView(
-            child: Center(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,8 +77,8 @@ class _mainScreenFlutterState extends State<mainScreenFlutter> {
                 ],
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
