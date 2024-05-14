@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:test_flutter/mainScreen.dart';
-
 import 'flutterHive/models/hiveNotesModel.dart';
 
 
@@ -38,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: mainScreenFlutter(),
+      home: const mainScreenFlutter(),
     );
   }
 }
