@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/ui/BlocPostScreen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/counter/bloc_counter_bloc.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/counter/bloc_counter_events.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/counter/bloc_counter_states.dart';
@@ -41,6 +42,11 @@ class _BlocCounterScreenState extends State<BlocCounterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const BlocPostScreen()));
+            }, child: const Text("Next")),
+
             BlocBuilder<BlocCounterBloc, BlocCounterState>(
                 builder: (context, state) {
               return Center(
