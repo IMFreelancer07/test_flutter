@@ -25,10 +25,10 @@ class _BlocMainState extends State<BlocMain> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => BlocCounterBloc(),
-
-        ),
+        // BlocProvider(
+        //   create: (_) => BlocCounterBloc(),
+        //
+        // ),
         BlocProvider(
           create: (context) => SwitchBloc(),
         ),

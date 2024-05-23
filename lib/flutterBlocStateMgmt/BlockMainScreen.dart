@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_api_management/ui/BlocPostScreen.dart';
+import 'package:test_flutter/flutterBlocStateMgmt/bloc_counter_app/ui/counter_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_favourite_app/ui/bloc_fav_app_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/bloc_todolist_app/ui/todlist_screen.dart';
 import 'package:test_flutter/flutterBlocStateMgmt/flutter_freeze/FreezeHomeScreen.dart';
@@ -47,6 +48,10 @@ class _BlockMainScreenState extends State<BlockMainScreen> {
                   const SizedBox(height: 30,),
                   RoundButton(title: "Bloc Switch", onPress: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocSwitchScreen()));
+                  }),
+                  const SizedBox(height: 30,),
+                  RoundButton(title: "Bloc Counter", onPress: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocCounterScreen()));
                   }),
                   const SizedBox(height: 30,),
                 ],
