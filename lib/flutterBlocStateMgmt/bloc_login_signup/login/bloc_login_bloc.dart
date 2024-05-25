@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
@@ -44,6 +46,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState >{
           body: data
       );
 
+      var res = jsonDecode(response.body);
+
       if(response.statusCode == 200){
         emit(
             state.copyWith(
@@ -55,7 +59,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState >{
         emit(
             state.copyWith(
               loginStatus: LoginStatus.error,
-              message: "Error occurred!",
+              message: res['error'],
             )
         );
       }
