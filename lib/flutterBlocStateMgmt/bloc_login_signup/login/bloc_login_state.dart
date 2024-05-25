@@ -2,9 +2,9 @@ part of 'bloc_login_bloc.dart';
 
 enum LoginStatus {initial, loading, success, error}
 
-class Bloc_loginState extends Equatable {
+class LoginState extends Equatable {
 
-  const Bloc_loginState({
+  const LoginState({
     this.email = '',
     this.password = '',
     this.message = '',
@@ -16,19 +16,22 @@ class Bloc_loginState extends Equatable {
   final String message;
   final LoginStatus loginStatus;
 
-  Bloc_loginState copyWith({
+  LoginState copyWith({
     String? email,
     String? password,
     String? message,
     LoginStatus? loginStatus,
 }) {
-    return Bloc_loginState(
+    return LoginState(
       email: email ?? this.email,
       password: password ?? this.password,
       message: message ?? this.message,
       loginStatus: loginStatus ?? this.loginStatus,
     );
   }
+
+  @override
+  List<Object?> get props => [email, password, message, loginStatus];
 
 
 }

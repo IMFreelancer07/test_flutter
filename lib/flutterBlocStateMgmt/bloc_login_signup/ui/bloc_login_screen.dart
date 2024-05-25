@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_flutter/flutterBlocStateMgmt/bloc_login_signup/login/bloc_login_bloc.dart';
-
-import '../login/bloc_login_state.dart';
+import '../login/bloc_login_bloc.dart';
 
 class BlocLoginScreen extends StatefulWidget {
   const BlocLoginScreen({super.key});
@@ -13,14 +11,14 @@ class BlocLoginScreen extends StatefulWidget {
 
 class _BlocLoginScreenState extends State<BlocLoginScreen> {
 
-  late Bloc_loginBloc _loginBloc;
+  late LoginBloc _loginBloc;
   final emailFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
 
   @override
   void initState() {
 
-    _loginBloc = Bloc_loginBloc();
+    _loginBloc = LoginBloc();
     super.initState();
     
   }
@@ -39,18 +37,20 @@ class _BlocLoginScreenState extends State<BlocLoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BlocBuilder<Bloc_loginBloc, Bloc_loginState>(builder: (context, state){
+              BlocBuilder<LoginBloc, LoginState>(builder: (context, state){
                 return TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   focusNode: emailFocusNode,
                   decoration: const InputDecoration(hintText: "Email", border: OutlineInputBorder()),
-                  onChanged: (value){},
+                  onChanged: (value){
+                    context.read<LoginBloc>().add(EmailChanged(email: value));
+                  },
                   onFieldSubmitted: (value){},
                 );
               }),
               const SizedBox(height: 20,),
 
-              BlocBuilder<Bloc_loginBloc, Bloc_loginState>(builder: (context, state){
+              BlocBuilder<LoginBloc, LoginState>(builder: (context, state){
                 return TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   focusNode: passwordFocusNode,
