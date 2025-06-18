@@ -34,33 +34,6 @@ Below are screenshots and video demonstrations of the completed application:
 
 #### Screenshots
 
-![App Screenshot 1](images/Screenshots/01.jpg)
-![App Screenshot 2](images/Screenshots/02.jpg)
-![App Screenshot 3](images/Screenshots/03.jpg)
-![App Screenshot 4](images/Screenshots/04.jpg)
-![App Screenshot 5](images/Screenshots/05.jpg)
-![App Screenshot 6](images/Screenshots/06.jpg)
-![App Screenshot 7](images/Screenshots/07.jpg)
-![App Screenshot 8](images/Screenshots/08.jpg)
-![App Screenshot 9](images/Screenshots/09.jpg)
-![App Screenshot 10](images/Screenshots/10.jpg)
-![App Screenshot 11](images/Screenshots/11.jpg)
-![App Screenshot 12](images/Screenshots/12.jpg)
-![App Screenshot 13](images/Screenshots/13.jpg)
-![App Screenshot 14](images/Screenshots/14.jpg)
-![App Screenshot 15](images/Screenshots/15.jpg)
-![App Screenshot 16](images/Screenshots/16.jpg)
-![App Screenshot 17](images/Screenshots/17.jpg)
-![App Screenshot 18](images/Screenshots/18.jpg)
-![App Screenshot 19](images/Screenshots/19.jpg)
-![App Screenshot 20](images/Screenshots/20.jpg)
-![App Screenshot 21](images/Screenshots/21.jpg)
-![App Screenshot 22](images/Screenshots/22.jpg)
-![App Screenshot 23](images/Screenshots/23.jpg)
-![App Screenshot 24](images/Screenshots/24.jpg)
-![App Screenshot 25](images/Screenshots/25.jpg)
-![App Screenshot 26](images/Screenshots/26.jpg)
-
 <p align="center">
   <img src="images/Screenshots/01.jpg" width="200" />
   <img src="images/Screenshots/02.jpg" width="200" />
