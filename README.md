@@ -61,6 +61,43 @@ Below are screenshots and video demonstrations of the completed application:
 ![App Screenshot 25](images/Screenshots/25.jpg)
 ![App Screenshot 26](images/Screenshots/26.jpg)
 
+<p align="center">
+  <img src="images/Screenshots/01.jpg" width="200" />
+  <img src="images/Screenshots/02.jpg" width="200" />
+  <img src="images/Screenshots/03.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/04.jpg" width="200" />
+  <img src="images/Screenshots/05.jpg" width="200" />
+  <img src="images/Screenshots/06.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/07.jpg" width="200" />
+  <img src="images/Screenshots/08.jpg" width="200" />
+  <img src="images/Screenshots/09.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/10.jpg" width="200" />
+  <img src="images/Screenshots/11.jpg" width="200" />
+  <img src="images/Screenshots/12.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/13.jpg" width="200" />
+  <img src="images/Screenshots/14.jpg" width="200" />
+  <img src="images/Screenshots/15.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/16.jpg" width="200" />
+  <img src="images/Screenshots/17.jpg" width="200" />
+  <img src="images/Screenshots/18.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/19.jpg" width="200" />
+  <img src="images/Screenshots/20.jpg" width="200" />
+  <img src="images/Screenshots/21.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/22.jpg" width="200" />
+  <img src="images/Screenshots/23.jpg" width="200" />
+  <img src="images/Screenshots/24.jpg" width="200" />
+  <br>
+  <img src="images/Screenshots/25.jpg" width="200" />
+  <img src="images/Screenshots/26.jpg" width="200" />
+</p>
+
 #### Complete App Demonstration Video
 
 [Watch Full App Demonstration](https://drive.google.com/file/d/1qH2zMy2NubA9OQCftsKOMU2hw-5lPrGk/view)
